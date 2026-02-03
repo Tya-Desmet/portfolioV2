@@ -4,7 +4,20 @@ Portfolio professionnel de Mystya, développeur full-stack junior passionné. Sp
 
 ## 🚀 Site en Production
 
-**URL:** https://mystya.dev
+**URL:** https://mystya.dev ✅ **EN LIGNE**
+
+## 🔄 Workflow Git
+
+- **`main`** → Production (déployé sur mystya.dev)
+- **`dev`** → Développement (nouvelles features)
+
+**Process:**
+1. Travaille sur `dev` : `git checkout dev`
+2. Commit tes modifications : `git add . && git commit -m "feat: nouvelle feature"`
+3. Push sur GitHub : `git push origin dev`
+4. Quand prêt pour prod : `git checkout main && git merge dev`
+5. Déploie sur Infomaniak : upload les fichiers modifiés via FTP
+6. Push sur GitHub : `git push origin main`
 
 ## ✨ Features v0.1
 
