@@ -1,0 +1,136 @@
+/* Responsive Media Queries - Mobile First Approach */
+
+/* Les styles de base (hero.css) sont pour mobile (320px+) */
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+    .hero__container {
+        flex-direction: row;
+        text-align: left;
+        gap: var(--spacing-xl);
+    }
+    
+    .hero__image-wrapper {
+        order: 1;
+        flex-shrink: 0;
+    }
+    
+    .hero__image {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .hero__content {
+        order: 2;
+    }
+    
+    .hero__stack {
+        justify-content: flex-start;
+    }
+    
+    /* Technologies Section */
+    .tech-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Contact Section */
+    .social-links {
+        gap: var(--spacing-lg);
+    }
+    
+    .social-link {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+    .hero {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+    
+    .hero__name {
+        font-size: 4rem; /* 64px */
+    }
+    
+    .hero__role {
+        font-size: 2.5rem; /* 40px */
+    }
+    
+    .hero__tagline {
+        font-size: 1.25rem; /* 20px */
+    }
+    
+    .hero__image {
+        width: 350px;
+        height: 350px;
+    }
+    
+    /* Technologies Section */
+    .tech-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+/* Wide screens (≥1440px) */
+@media (min-width: 1440px) {
+    .hero__container {
+        gap: var(--spacing-2xl);
+    }
+    
+    /* Technologies Section */
+    .tech-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .hero__image {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+/* Préférences utilisateur - Respect de prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .hero__name,
+    .hero__role {
+        text-shadow: none;
+    }
+    
+    .stack-badge {
+        border-width: 2px;
+    }
+}
+
+/* Dark mode support (préparation pour future phase) */
+@media (prefers-color-scheme: dark) {
+    /* Will be implemented in future phase when dark mode is required */
+    /* For now, site uses light mode only */
+}

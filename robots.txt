@@ -1,0 +1,7 @@
+# Robots.txt pour mystya.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mystya.dev/sitemap.xml

@@ -1,0 +1,203 @@
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Adjust scroll position for sticky nav (scroll-margin-top) */
+section[id],
+header[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Skip Link (accessibility) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    z-index: 1001;
+    font-weight: var(--font-weight-medium);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Navigation Sticky Header */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-background);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition-default);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand/Logo */
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-default);
+}
+
+.nav-brand:hover,
+.nav-brand:focus-visible {
+    color: var(--color-primary);
+}
+
+.nav-brand:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+/* Navigation Menu (mobile hidden by default) */
+.nav-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-default);
+    border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--color-primary);
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.nav-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Burger Menu Button (mobile only) */
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+}
+
+.nav-toggle:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.burger-icon {
+    position: relative;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: all var(--transition-default);
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: all var(--transition-default);
+}
+
+.burger-icon::before {
+    top: -10px;
+}
+
+.burger-icon::after {
+    top: 10px;
+}
+
+/* Burger Icon Animation (when menu open) */
+.nav-toggle.active .burger-icon {
+    background-color: transparent;
+}
+
+.nav-toggle.active .burger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-toggle.active .burger-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile Menu Open State */
+.nav-menu.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-md) 0;
+}
+
+/* Tablet and Desktop (≥768px) */
+@media (min-width: 768px) {
+    /* Hide burger menu button */
+    .nav-toggle {
+        display: none;
+    }
+    
+    /* Show navigation menu horizontally */
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
+    
+    .nav-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+}
+
+/* Desktop larger spacing (≥1024px) */
+@media (min-width: 1024px) {
+    .nav-menu {
+        gap: var(--spacing-lg);
+    }
+}

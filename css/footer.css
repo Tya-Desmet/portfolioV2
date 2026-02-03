@@ -1,0 +1,19 @@
+/* Footer Styles */
+
+.footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background-color: var(--color-text);
+    color: var(--color-background);
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}

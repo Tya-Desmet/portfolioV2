@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Tags -->
+    <title>Mystya - Développeur Full-Stack Junior | JavaScript React Node.js</title>
+    <meta name="description" content="Portfolio professionnel de Mystya, développeur full-stack junior passionné. Spécialisé en JavaScript, React, Node.js et PostgreSQL. Disponible pour missions freelance.">
+    <meta name="keywords" content="développeur full-stack, JavaScript, React, Node.js, PostgreSQL, portfolio, freelance">
+    <meta name="author" content="Mystya">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
+    
+    <!-- Theme Color (mobile browsers) -->
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/technologies.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Skip link pour accessibilité clavier -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
+    <!-- Navigation Sticky Header -->
+    <nav class="nav" aria-label="Navigation principale">
+        <div class="nav-container">
+            <!-- Logo/Brand -->
+            <a href="#hero" class="nav-brand">Mystya</a>
+            
+            <!-- Burger Menu Button (mobile only) -->
+            <button class="nav-toggle" 
+                    aria-label="Ouvrir le menu de navigation" 
+                    aria-expanded="false"
+                    aria-controls="nav-menu">
+                <span class="burger-icon" aria-hidden="true"></span>
+            </button>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#hero" class="nav-link active">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#technologies" class="nav-link">Technologies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projets" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+    
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero__container">
+            <!-- Photo professionnelle avec alt text descriptif -->
+            <!-- NOTE: Using SVG placeholder until actual photo is provided -->
+            <div class="hero__image-wrapper">
+                <img 
+                    src="images/mystya-photo.png" 
+                    alt="Photo professionnelle de Mystya, développeur full-stack junior"
+                    class="hero__image"
+                    width="300"
+                    height="300"
+                    loading="eager">
+            </div>
+            
+            <!-- Contenu textuel -->
+            <div class="hero__content">
+                <h1 class="hero__name">Mystya</h1>
+                <p class="hero__role">Développeur Full-Stack Junior</p>
+                <p class="hero__tagline">Passionné par la création d'applications web modernes et performantes</p>
+                
+                <!-- Stack technique -->
+                <div class="hero__stack" role="list" aria-label="Technologies maîtrisées">
+                    <span class="stack-badge" role="listitem">JavaScript</span>
+                    <span class="stack-badge" role="listitem">React</span>
+                    <span class="stack-badge" role="listitem">Node.js</span>
+                    <span class="stack-badge" role="listitem">PostgreSQL</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Section Technologies & Stack -->
+    <section id="technologies" class="technologies">
+        <div class="container">
+            <h2 class="section-title">Technologies & Compétences</h2>
+            
+            <!-- Frontend Category -->
+            <div class="tech-category">
+                <h3 class="category-title">Frontend</h3>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🎨</i>
+                        <span class="tech-name">HTML5</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🎨</i>
+                        <span class="tech-name">CSS3</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">⚡</i>
+                        <span class="tech-name">JavaScript ES6+</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">⚛️</i>
+                        <span class="tech-name">React</span>
+                        <span class="tech-badge learning">En cours</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🚀</i>
+                        <span class="tech-name">Astro</span>
+                        <span class="tech-badge learning">En cours</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Backend Category -->
+            <div class="tech-category">
+                <h3 class="category-title">Backend</h3>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🟢</i>
+                        <span class="tech-name">Node.js</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🚂</i>
+                        <span class="tech-name">Express</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🐘</i>
+                        <span class="tech-name">PostgreSQL</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Tools Category -->
+            <div class="tech-category">
+                <h3 class="category-title">Outils & Workflow</h3>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">📚</i>
+                        <span class="tech-name">Git</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">💻</i>
+                        <span class="tech-name">VS Code</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">📦</i>
+                        <span class="tech-name">npm</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">⚡</i>
+                        <span class="tech-name">Vite</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Learning Category -->
+            <div class="tech-category">
+                <h3 class="category-title">Apprentissage en cours</h3>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">📘</i>
+                        <span class="tech-name">TypeScript</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🐳</i>
+                        <span class="tech-name">Docker</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="tech-icon" aria-hidden="true">🔌</i>
+                        <span class="tech-name">Socket.io</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Projets Réalisés -->
+    <section id="projets" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projets Réalisés</h2>
+            <p class="section-subtitle">Découvrez mes réalisations récentes</p>
+            
+            <div class="projects-grid">
+                <!-- Project Card 1: Portfolio Website -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img 
+                            src="images/projects/project-1-portfolio.svg" 
+                            alt="Screenshot du site portfolio mystya.dev avec hero section et présentation des compétences"
+                            class="project-image"
+                            width="600"
+                            height="400"
+                            loading="lazy">
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">Portfolio Personnel</h3>
+                        <p class="project-description">
+                            Site portfolio professionnel mettant en avant mes compétences et projets. 
+                            Design responsive avec focus sur l'accessibilité et les performances (Lighthouse 95+).
+                        </p>
+                        
+                        <div class="project-stack">
+                            <span class="stack-badge">HTML5</span>
+                            <span class="stack-badge">CSS3</span>
+                            <span class="stack-badge">JavaScript</span>
+                            <span class="stack-badge">Astro</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/mystya/portfolio" 
+                               class="project-link project-link--github" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Voir le code source du portfolio sur GitHub">
+                                <svg class="link-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="https://mystya.dev" 
+                               class="project-link project-link--demo" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Voir la démo live du portfolio">
+                                <svg class="link-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                                </svg>
+                                Démo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project Card 2: Todo App -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img 
+                            src="images/projects/project-2-todo.svg" 
+                            alt="Screenshot de l'application Todo avec liste de tâches, filtres et interface React"
+                            class="project-image"
+                            width="600"
+                            height="400"
+                            loading="lazy">
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">Todo App React</h3>
+                        <p class="project-description">
+                            Application de gestion de tâches avec interface intuitive. 
+                            Fonctionnalités CRUD complètes, filtres par statut, et persistance localStorage.
+                        </p>
+                        
+                        <div class="project-stack">
+                            <span class="stack-badge">React</span>
+                            <span class="stack-badge">JavaScript</span>
+                            <span class="stack-badge">CSS3</span>
+                            <span class="stack-badge">Vite</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/mystya/todo-app" 
+                               class="project-link project-link--github" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Voir le code source de l'application Todo sur GitHub">
+                                <svg class="link-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="https://mystya-todo.netlify.app" 
+                               class="project-link project-link--demo" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Voir la démo live de l'application Todo">
+                                <svg class="link-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                                </svg>
+                                Démo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project Card 3: Blog Technique -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img 
+                            src="images/projects/project-3-blog.svg" 
+                            alt="Screenshot du blog technique avec articles, catégories et système de navigation"
+                            class="project-image"
+                            width="600"
+                            height="400"
+                            loading="lazy">
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">Blog Technique</h3>
+                        <p class="project-description">
+                            Blog personnel avec articles techniques et tutoriels. 
+                            Généré avec Astro SSG, Markdown, syntax highlighting et optimisation SEO.
+                        </p>
+                        
+                        <div class="project-stack">
+                            <span class="stack-badge">Astro</span>
+                            <span class="stack-badge">Markdown</span>
+                            <span class="stack-badge">TypeScript</span>
+                            <span class="stack-badge">Tailwind CSS</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/mystya/blog" 
+                               class="project-link project-link--github" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Voir le code source du blog technique sur GitHub">
+                                <svg class="link-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="https://blog.mystya.dev" 
+                               class="project-link project-link--demo" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Voir la démo live du blog technique">
+                                <svg class="link-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                                </svg>
+                                Démo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Contact & Réseaux Sociaux -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            <p class="contact-message">
+                Intéressé par une collaboration ? Discutons de votre projet !
+            </p>
+            
+            <!-- Email -->
+            <div class="contact-email">
+                <a href="mailto:mystya.dev@example.com" class="email-link">
+                    <svg class="email-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>mystya.dev@example.com</span>
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://linkedin.com/in/mystya" 
+                   class="social-link social-link--linkedin" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Profil LinkedIn de Mystya">
+                    <svg class="social-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://github.com/mystya" 
+                   class="social-link social-link--github" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Profil GitHub de Mystya">
+                    <svg class="social-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://twitter.com/mystya_dev" 
+                   class="social-link social-link--twitter" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Profil Twitter de Mystya">
+                    <svg class="social-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Mystya. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <script src="js/navigation.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

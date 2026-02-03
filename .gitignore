@@ -1,0 +1,38 @@
+# BMAD Workflow Files (exclude from Git)
+_bmad/
+_bmad-output/
+
+# Claude AI Files (exclude from Git)
+.claude/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (future use)
+node_modules/
+package-lock.json
+
+# Environment variables (future use)
+.env
+.env.local
+.env.production
+
+# Build outputs (future use with Astro v0.3+)
+dist/
+.astro/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
