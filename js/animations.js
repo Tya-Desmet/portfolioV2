@@ -118,6 +118,10 @@ function initParallax() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
 
+    // Désactiver le parallax sur mobile pour éviter que le hero disparaisse trop vite
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) return;
+
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const parallaxSpeed = 0.5;
