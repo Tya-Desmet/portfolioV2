@@ -74,8 +74,6 @@
             
             // Update the script tag
             blogSchemaScript.textContent = JSON.stringify(schema, null, 2);
-            
-            console.log(`BlogPosting Schema updated: ${actualWordCount} words, ${actualReadingTime} reading time`);
         } catch (e) {
             console.error('Error updating BlogPosting schema:', e);
         }
@@ -100,15 +98,19 @@
         }
     }
     
-    // Run on DOMContentLoaded
+    // Run on DOMContentLoaded - only on article pages
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            updateBlogSchema();
-            updateReadingTimeDisplay();
+            if (document.querySelector('.article-content')) {
+                updateBlogSchema();
+                updateReadingTimeDisplay();
+            }
         });
     } else {
-        updateBlogSchema();
-        updateReadingTimeDisplay();
+        if (document.querySelector('.article-content')) {
+            updateBlogSchema();
+            updateReadingTimeDisplay();
+        }
     }
     
 })();

@@ -26,7 +26,7 @@
   
   <!-- Blog Article 2: React Hooks -->
   <url>
-    <loc>https://tyadesmet.dev/blog/articles/react-hooks-guide-complet.html</loc>
+    <loc>https://tyadesmet.dev/blog/articles/guide-complet-react-hooks.html</loc>
     <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -34,7 +34,7 @@
   
   <!-- Blog Article 3: Node.js API -->
   <url>
-    <loc>https://tyadesmet.dev/blog/articles/creer-api-rest-nodejs-express.html</loc>
+    <loc>https://tyadesmet.dev/blog/articles/api-rest-guide-pratique.html</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
