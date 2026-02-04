@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Complet des React Hooks - Tya Desmet Blog</title>
+    <meta name="description" content="Maîtrisez les React Hooks : useState, useEffect, useContext et plus encore. Guide pratique avec exemples concrets pour développeurs React.">
+    <meta name="keywords" content="React, Hooks, useState, useEffect, JavaScript, frontend">
+    <meta name="author" content="Tya Desmet">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tyadesmet.dev/blog/articles/guide-complet-react-hooks.html">
+    <meta property="og:title" content="Guide Complet des React Hooks">
+    <meta property="og:description" content="Maîtrisez les React Hooks : useState, useEffect, useContext et plus encore.">
+    <meta property="og:image" content="https://tyadesmet.dev/images/blog/placeholder.svg">
+    <meta property="article:published_time" content="2026-02-04T14:00:00Z">
+    <meta property="article:author" content="Tya Desmet">
+    <meta property="article:tag" content="React">
+    <meta property="article:tag" content="JavaScript">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+    <link rel="stylesheet" href="../../css/article-detail.css">
+    <link rel="stylesheet" href="../../css/code-highlight.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    
+    <!-- Prism.js for Syntax Highlighting -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" aria-label="Navigation principale">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-brand">Tya Desmet</a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="burger-icon"></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../../index.html#hero" class="nav-link">Accueil</a></li>
+                <li><a href="../../index.html#technologies" class="nav-link">Technologies</a></li>
+                <li><a href="../../index.html#projects" class="nav-link">Projets</a></li>
+                <li><a href="../../index.html#timeline" class="nav-link">Parcours</a></li>
+                <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="../index.html" class="nav-link active">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Article Content -->
+    <main id="main-content" class="article-detail">
+        <article class="article-container">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../../index.html">Accueil</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="../index.html">Blog</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Guide Complet des React Hooks</span>
+            </nav>
+            
+            <!-- Back to blog link -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                Retour au blog
+            </a>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <h1>Guide Complet des React Hooks</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="../../images/mystya-photo.png" alt="Tya Desmet" class="author-avatar">
+                        <span class="author-name">Tya Desmet</span>
+                    </div>
+                    <time datetime="2026-02-04" class="article-date">
+                        <svg class="icon-calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                        </svg>
+                        4 février 2026
+                    </time>
+                    <span class="reading-time">
+                        <svg class="icon-clock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                        15 min
+                    </span>
+                </div>
+                
+                <p>
+                    Découvrez comment utiliser les React Hooks pour créer des composants fonctionnels puissants et maintenables. De useState à useContext, en passant par les hooks personnalisés.
+                </p>
+                
+                <div class="article-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Hooks</span>
+                    <span class="tag">Frontend</span>
+                </div>
+                
+                <figure class="article-hero-image">
+                    <img src="../../images/blog/placeholder.svg" alt="Illustration React Hooks avec exemples de code" loading="lazy">
+                    <figcaption>Les React Hooks transforment la façon d'écrire des composants React</figcaption>
+                </figure>
+            </header>
+
+            <!-- Article Content -->
+            <div class="article-body">
+                <div class="article-notice">
+                    <h3>📝 Article en cours d'écriture</h3>
+                    <p>
+                        Cet article est actuellement en cours de rédaction. Le contenu complet sera disponible prochainement avec des exemples de code détaillés, des cas d'usage pratiques et des bonnes pratiques pour maîtriser les React Hooks.
+                    </p>
+                </div>
+
+                <section>
+                    <h2>Introduction aux React Hooks</h2>
+                    <p>
+                        Les React Hooks ont révolutionné la façon dont nous écrivons des composants React. Introduits dans React 16.8, ils permettent d'utiliser l'état et d'autres fonctionnalités de React sans écrire de classe.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Les Hooks Essentiels</h2>
+                    
+                    <h3>useState - Gérer l'État Local</h3>
+                    <p>
+                        Le hook useState est le plus fondamental. Il permet d'ajouter un état local à un composant fonctionnel.
+                    </p>
+                    
+                    <div class="code-block">
+                        <button class="copy-button" aria-label="Copier le code">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                        <pre><code class="language-jsx">import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Vous avez cliqué {count} fois&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Cliquez-moi
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                    </div>
+
+                    <h3>useEffect - Gérer les Effets de Bord</h3>
+                    <p>
+                        useEffect permet d'effectuer des opérations après le rendu du composant : appels API, abonnements, modifications du DOM...
+                    </p>
+
+                    <h3>useContext - Partager des Données</h3>
+                    <p>
+                        useContext simplifie l'accès au contexte React sans avoir besoin de composants Consumer.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Hooks Avancés</h2>
+                    <p>
+                        Au-delà des hooks de base, React propose des hooks plus avancés comme useReducer, useMemo, useCallback, et useRef pour des cas d'usage spécifiques.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Créer vos Propres Hooks</h2>
+                    <p>
+                        Les hooks personnalisés permettent d'extraire la logique des composants dans des fonctions réutilisables. C'est l'une des fonctionnalités les plus puissantes des Hooks.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Bonnes Pratiques</h2>
+                    <ul>
+                        <li>Toujours appeler les Hooks au niveau racine du composant</li>
+                        <li>N'appelez les Hooks que depuis des composants fonctionnels React ou des Hooks personnalisés</li>
+                        <li>Utilisez le linter ESLint plugin pour React Hooks</li>
+                        <li>Mémorisez les fonctions coûteuses avec useMemo et useCallback</li>
+                    </ul>
+                </section>
+
+                <div class="article-notice article-notice--secondary">
+                    <p>
+                        💡 <strong>Article en développement :</strong> Cette section sera complétée avec des exemples de hooks personnalisés, des patterns avancés, des comparaisons de performance, et des cas d'usage réels tirés de projets en production.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Article Footer -->
+            <footer class="article-footer">
+                <!-- Article Navigation: Previous/Next -->
+                <nav class="article-navigation" aria-label="Article Navigation">
+                    <!-- Previous Article -->
+                    <a href="introduction-developpement-frontend-moderne.html" class="nav-article nav-article-prev">
+                        <span class="nav-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
+                            </svg>
+                            Article précédent
+                        </span>
+                        <span class="nav-title">Introduction au Développement Frontend Moderne</span>
+                    </a>
+                    
+                    <!-- Next Article -->
+                    <a href="api-rest-guide-pratique.html" class="nav-article nav-article-next">
+                        <span class="nav-label">
+                            Article suivant
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </span>
+                        <span class="nav-title">API REST : Guide Pratique</span>
+                    </a>
+                </nav>
+                
+                <!-- Related Articles -->
+                <section class="related-articles">
+                    <h3>Articles similaires</h3>
+                    <div class="related-grid">
+                        <!-- Related Article 1 -->
+                        <a href="introduction-developpement-frontend-moderne.html" class="related-card">
+                            <img src="../../images/blog/article-1-frontend.webp" 
+                                 alt="Frontend Moderne" 
+                                 class="related-thumbnail"
+                                 loading="lazy"
+                                 onerror="this.src='../../images/blog/placeholder.svg'">
+                            <div class="related-content">
+                                <h4 class="related-title">Introduction au Développement Frontend Moderne</h4>
+                                <p class="related-excerpt">Découvrez les fondamentaux du développement frontend moderne avec HTML5, CSS3, et JavaScript ES6+.</p>
+                                <div class="related-meta">
+                                    <time datetime="2026-02-04">4 fév 2026</time>
+                                    <span>•</span>
+                                    <span>8 min</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Related Article 2 -->
+                        <a href="api-rest-guide-pratique.html" class="related-card">
+                            <img src="../../images/blog/article-3-nodejs.webp" 
+                                 alt="API REST" 
+                                 class="related-thumbnail"
+                                 loading="lazy"
+                                 onerror="this.src='../../images/blog/placeholder.svg'">
+                            <div class="related-content">
+                                <h4 class="related-title">API REST : Guide Pratique pour Développeurs</h4>
+                                <p class="related-excerpt">Apprenez à concevoir et utiliser des API REST efficaces avec Node.js et Express.</p>
+                                <div class="related-meta">
+                                    <time datetime="2026-02-04">4 fév 2026</time>
+                                    <span>•</span>
+                                    <span>20 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                
+                <div class="share-section">
+                    <h3>Partager cet article</h3>
+                    <div class="share-buttons">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tyadesmet.dev/blog/articles/guide-complet-react-hooks.html" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="share-btn share-linkedin"
+                           aria-label="Partager sur LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        
+                        <a href="https://twitter.com/intent/tweet?url=https://tyadesmet.dev/blog/articles/guide-complet-react-hooks.html&text=Guide%20Complet%20des%20React%20Hooks" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="share-btn share-twitter"
+                           aria-label="Partager sur Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                            Twitter
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="back-to-blog">
+                    <a href="../index.html" class="btn-back">← Voir tous les articles</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tya Desmet. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/navigation.js" defer></script>
+    
+    <!-- Prism.js Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+</body>
+</html>

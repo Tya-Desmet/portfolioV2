@@ -1,9 +1,21 @@
-/* Contact Section Styles */
+/* Contact Section Styles - Mobile First */
 
 .contact {
-    padding: var(--spacing-2xl) var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-sm);
     background-color: var(--color-surface);
     text-align: center;
+}
+
+@media (min-width: 640px) {
+    .contact {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
 }
 
 .contact .container {

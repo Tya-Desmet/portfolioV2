@@ -162,6 +162,29 @@
     transform: scale(1.08);
 }
 
+/* Article Badge (en cours d'écriture) */
+.article-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+    z-index: 10;
+    transition: all var(--transition-default);
+}
+
+.article-card:hover .article-badge {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.5);
+}
+
 /* ===================================================================
    ARTICLE CONTENT
    =================================================================== */

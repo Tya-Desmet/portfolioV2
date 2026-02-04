@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API REST : Guide Pratique pour Développeurs - Tya Desmet Blog</title>
+    <meta name="description" content="Apprenez à concevoir et utiliser des API REST efficaces. Méthodes HTTP, authentification, bonnes pratiques et exemples concrets avec Node.js et Express.">
+    <meta name="keywords" content="API REST, Node.js, Express, HTTP, backend, développement web">
+    <meta name="author" content="Tya Desmet">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tyadesmet.dev/blog/articles/api-rest-guide-pratique.html">
+    <meta property="og:title" content="API REST : Guide Pratique pour Développeurs">
+    <meta property="og:description" content="Apprenez à concevoir et utiliser des API REST efficaces avec Node.js et Express.">
+    <meta property="og:image" content="https://tyadesmet.dev/images/blog/placeholder.svg">
+    <meta property="article:published_time" content="2026-02-04T16:00:00Z">
+    <meta property="article:author" content="Tya Desmet">
+    <meta property="article:tag" content="Node.js">
+    <meta property="article:tag" content="API">
+    <meta property="article:tag" content="REST">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+    <link rel="stylesheet" href="../../css/article-detail.css">
+    <link rel="stylesheet" href="../../css/code-highlight.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    
+    <!-- Prism.js for Syntax Highlighting -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" aria-label="Navigation principale">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-brand">Tya Desmet</a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="burger-icon"></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../../index.html#hero" class="nav-link">Accueil</a></li>
+                <li><a href="../../index.html#technologies" class="nav-link">Technologies</a></li>
+                <li><a href="../../index.html#projects" class="nav-link">Projets</a></li>
+                <li><a href="../../index.html#timeline" class="nav-link">Parcours</a></li>
+                <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="../index.html" class="nav-link active">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Article Content -->
+    <main id="main-content" class="article-detail">
+        <article class="article-container">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../../index.html">Accueil</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="../index.html">Blog</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">API REST : Guide Pratique</span>
+            </nav>
+            
+            <!-- Back to blog link -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                Retour au blog
+            </a>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <h1>API REST : Guide Pratique pour Développeurs</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="../../images/mystya-photo.png" alt="Tya Desmet" class="author-avatar">
+                        <span class="author-name">Tya Desmet</span>
+                    </div>
+                    <time datetime="2026-02-04" class="article-date">
+                        <svg class="icon-calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                        </svg>
+                        4 février 2026
+                    </time>
+                    <span class="reading-time">
+                        <svg class="icon-clock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                        20 min
+                    </span>
+                </div>
+                
+                <p>
+                    Maîtrisez la conception et l'utilisation des API REST. De la théorie à la pratique avec Node.js, Express, et les meilleures pratiques de l'industrie.
+                </p>
+                
+                <div class="article-tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">API</span>
+                    <span class="tag">REST</span>
+                    <span class="tag">Backend</span>
+                    <span class="tag">Express</span>
+                </div>
+                
+                <figure class="article-hero-image">
+                    <img src="../../images/blog/placeholder.svg" alt="Diagramme d'architecture API REST avec méthodes HTTP" loading="lazy">
+                    <figcaption>Maîtrisez la conception d'API REST avec les bonnes pratiques de l'industrie</figcaption>
+                </figure>
+            </header>
+
+            <!-- Article Content -->
+            <div class="article-body">
+                <div class="article-notice">
+                    <h3>📝 Article en cours d'écriture</h3>
+                    <p>
+                        Cet article est actuellement en cours de rédaction. Le contenu complet sera disponible prochainement avec une API complète en exemple, des stratégies d'authentification, de la documentation Swagger, et des tests automatisés.
+                    </p>
+                </div>
+
+                <section>
+                    <h2>Qu'est-ce qu'une API REST ?</h2>
+                    <p>
+                        REST (Representational State Transfer) est un style d'architecture pour les systèmes distribués. Une API REST utilise les méthodes HTTP standard pour effectuer des opérations CRUD (Create, Read, Update, Delete) sur des ressources.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Les Principes Fondamentaux</h2>
+                    
+                    <h3>1. Architecture Client-Serveur</h3>
+                    <p>
+                        Séparation claire entre le client (frontend) et le serveur (backend), permettant une évolution indépendante de chaque partie.
+                    </p>
+
+                    <h3>2. Sans État (Stateless)</h3>
+                    <p>
+                        Chaque requête du client vers le serveur doit contenir toutes les informations nécessaires pour comprendre la requête. Le serveur ne stocke pas l'état du client entre les requêtes.
+                    </p>
+
+                    <h3>3. Cacheable</h3>
+                    <p>
+                        Les réponses doivent indiquer si elles peuvent être mises en cache ou non pour améliorer les performances.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Les Méthodes HTTP</h2>
+                    
+                    <div class="code-block">
+                        <button class="copy-button" aria-label="Copier le code">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                        <pre><code class="language-javascript">// GET - Récupérer des ressources
+app.get('/api/users', (req, res) => {
+  res.json(users);
+});
+
+// POST - Créer une nouvelle ressource
+app.post('/api/users', (req, res) => {
+  const newUser = req.body;
+  users.push(newUser);
+  res.status(201).json(newUser);
+});
+
+// PUT - Mettre à jour une ressource complète
+app.put('/api/users/:id', (req, res) => {
+  const { id } = req.params;
+  const updatedUser = req.body;
+  // Logique de mise à jour...
+  res.json(updatedUser);
+});
+
+// PATCH - Mise à jour partielle
+app.patch('/api/users/:id', (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+  // Logique de mise à jour partielle...
+  res.json(updatedUser);
+});
+
+// DELETE - Supprimer une ressource
+app.delete('/api/users/:id', (req, res) => {
+  const { id } = req.params;
+  // Logique de suppression...
+  res.status(204).send();
+});</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Codes de Statut HTTP</h2>
+                    <ul>
+                        <li><strong>200 OK</strong> - Requête réussie</li>
+                        <li><strong>201 Created</strong> - Ressource créée avec succès</li>
+                        <li><strong>204 No Content</strong> - Requête réussie, pas de contenu à renvoyer</li>
+                        <li><strong>400 Bad Request</strong> - Requête mal formée</li>
+                        <li><strong>401 Unauthorized</strong> - Authentification requise</li>
+                        <li><strong>403 Forbidden</strong> - Accès refusé</li>
+                        <li><strong>404 Not Found</strong> - Ressource introuvable</li>
+                        <li><strong>500 Internal Server Error</strong> - Erreur serveur</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Structure d'URL Cohérente</h2>
+                    <div class="code-block">
+                        <pre><code class="language-bash"># Collections (pluriel)
+GET    /api/users          # Liste des utilisateurs
+POST   /api/users          # Créer un utilisateur
+
+# Ressources individuelles (ID)
+GET    /api/users/123      # Récupérer l'utilisateur 123
+PUT    /api/users/123      # Mettre à jour l'utilisateur 123
+DELETE /api/users/123      # Supprimer l'utilisateur 123
+
+# Ressources imbriquées
+GET    /api/users/123/posts        # Posts de l'utilisateur 123
+POST   /api/users/123/posts        # Créer un post pour l'utilisateur 123
+GET    /api/users/123/posts/456    # Post 456 de l'utilisateur 123</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Authentification et Sécurité</h2>
+                    <p>
+                        Les API REST doivent implémenter des mécanismes d'authentification robustes : JWT (JSON Web Tokens), OAuth 2.0, ou API Keys. Toujours utiliser HTTPS en production.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Versioning de l'API</h2>
+                    <p>
+                        Prévoir l'évolution de votre API avec un système de versioning clair : <code>/api/v1/users</code>, <code>/api/v2/users</code>.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Documentation avec Swagger/OpenAPI</h2>
+                    <p>
+                        Une documentation claire et interactive est essentielle. Swagger/OpenAPI est le standard de l'industrie pour documenter les API REST.
+                    </p>
+                </section>
+
+                <div class="article-notice article-notice--secondary">
+                    <p>
+                        💡 <strong>Contenu à venir :</strong> Cet article sera enrichi avec une API complète d'exemple (Express + MongoDB), middleware d'authentification JWT, gestion des erreurs, rate limiting, tests avec Jest et Supertest, et déploiement sur Vercel/Heroku.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Article Footer -->
+            <footer class="article-footer">
+                <!-- Article Navigation: Previous/Next -->
+                <nav class="article-navigation article-navigation--single" aria-label="Article Navigation">
+                    <!-- Previous Article -->
+                    <a href="guide-complet-react-hooks.html" class="nav-article nav-article-prev">
+                        <span class="nav-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
+                            </svg>
+                            Article précédent
+                        </span>
+                        <span class="nav-title">Guide Complet des React Hooks</span>
+                    </a>
+                </nav>
+                
+                <!-- Related Articles -->
+                <section class="related-articles">
+                    <h3>Articles similaires</h3>
+                    <div class="related-grid">
+                        <!-- Related Article 1 -->
+                        <a href="introduction-developpement-frontend-moderne.html" class="related-card">
+                            <img src="../../images/blog/article-1-frontend.webp" 
+                                 alt="Frontend Moderne" 
+                                 class="related-thumbnail"
+                                 loading="lazy"
+                                 onerror="this.src='../../images/blog/placeholder.svg'">
+                            <div class="related-content">
+                                <h4 class="related-title">Introduction au Développement Frontend Moderne</h4>
+                                <p class="related-excerpt">Découvrez les fondamentaux du développement frontend moderne avec HTML5, CSS3, et JavaScript ES6+.</p>
+                                <div class="related-meta">
+                                    <time datetime="2026-02-04">4 fév 2026</time>
+                                    <span>•</span>
+                                    <span>8 min</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Related Article 2 -->
+                        <a href="guide-complet-react-hooks.html" class="related-card">
+                            <img src="../../images/blog/article-2-react.webp" 
+                                 alt="React Hooks" 
+                                 class="related-thumbnail"
+                                 loading="lazy"
+                                 onerror="this.src='../../images/blog/placeholder.svg'">
+                            <div class="related-content">
+                                <h4 class="related-title">Guide Complet des React Hooks</h4>
+                                <p class="related-excerpt">Maîtrisez les React Hooks avec des exemples pratiques et créez des composants fonctionnels modernes.</p>
+                                <div class="related-meta">
+                                    <time datetime="2026-02-04">4 fév 2026</time>
+                                    <span>•</span>
+                                    <span>15 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                
+                <div class="share-section">
+                    <h3>Partager cet article</h3>
+                    <div class="share-buttons">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tyadesmet.dev/blog/articles/api-rest-guide-pratique.html" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="share-btn share-linkedin"
+                           aria-label="Partager sur LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        
+                        <a href="https://twitter.com/intent/tweet?url=https://tyadesmet.dev/blog/articles/api-rest-guide-pratique.html&text=API%20REST%20:%20Guide%20Pratique%20pour%20D%C3%A9veloppeurs" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="share-btn share-twitter"
+                           aria-label="Partager sur Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                            Twitter
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="back-to-blog">
+                    <a href="../index.html" class="btn-back">← Voir tous les articles</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tya Desmet. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/navigation.js" defer></script>
+    
+    <!-- Prism.js Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+</body>
+</html>
