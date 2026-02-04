@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://mystya.dev/sitemap.xml
+Sitemap: https://tyadesmet.dev/sitemap.xml
