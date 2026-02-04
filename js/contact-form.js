@@ -22,8 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const subjectError = document.getElementById('subject-error');
     const messageError = document.getElementById('message-error');
 
-    // Regex pour validation email (RFC 5322 simplifié)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Regex pour validation email (RFC 5322 simplifié mais plus robuste)
+    // Accepte: user@domain.com, user.name@domain.co.uk, etc.
+    // Rejette: user@domain, user@, @domain.com
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
     // Configuration des validations
     const validations = {

@@ -17,11 +17,37 @@
     let activeFilter = 'all';
     
     /**
+     * Get tag from URL query parameter
+     * @returns {string} Tag from URL or 'all'
+     */
+    function getTagFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('tag') || 'all';
+    }
+    
+    /**
+     * Update URL with current tag filter (Story 4.6 - URL query parameters)
+     * @param {string} tag - The tag to add to URL
+     */
+    function updateURLWithTag(tag) {
+        const url = new URL(window.location);
+        if (tag === 'all') {
+            url.searchParams.delete('tag');
+        } else {
+            url.searchParams.set('tag', tag);
+        }
+        window.history.pushState({}, '', url);
+    }
+    
+    /**
      * Filter articles based on selected tag
      * @param {string} filterValue - The tag to filter by ('all' or specific tag)
      */
     function filterArticles(filterValue) {
         let visibleCount = 0;
+        
+        // Update URL with filter (Story 4.6 fix #43)
+        updateURLWithTag(filterValue);
         
         articleCards.forEach(card => {
             const cardTags = card.dataset.tags.toLowerCase();
@@ -140,6 +166,13 @@
      * Initialize filter event listeners
      */
     function initializeFilters() {
+        // Check URL on page load for tag filter (Story 4.6 fix #43)
+        const urlTag = getTagFromURL();
+        if (urlTag !== 'all') {
+            updateActiveFilter(urlTag);
+            filterArticles(urlTag);
+        }
+        
         // Add click event to filter buttons
         filterButtons.forEach(button => {
             button.addEventListener('click', (e) => {
