@@ -1,8 +1,9 @@
-/* Technologies Section Styles */
+/* Technologies Section Styles with Purple Theme */
 
 .technologies {
-    padding: var(--spacing-2xl) var(--spacing-md);
-    background-color: var(--color-surface);
+    padding: var(--spacing-3xl) var(--spacing-md);
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+    position: relative;
 }
 
 .technologies .container {
@@ -13,23 +14,54 @@
 .section-title {
     font-size: var(--font-size-h1);
     font-weight: var(--font-weight-bold);
-    color: var(--color-text);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-align: center;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: var(--spacing-md) auto var(--spacing-2xl);
+    border-radius: var(--radius-full);
 }
 
 /* Tech Categories */
 .tech-category {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    animation: fadeInUp 0.6s ease-out backwards;
 }
 
+.tech-category:nth-child(2) { animation-delay: 0.1s; }
+.tech-category:nth-child(3) { animation-delay: 0.2s; }
+.tech-category:nth-child(4) { animation-delay: 0.3s; }
+
 .category-title {
-    font-size: var(--font-size-h2);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-    border-bottom: 2px solid var(--color-primary);
-    padding-bottom: var(--spacing-xs);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-left: var(--spacing-md);
+}
+
+.category-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
 }
 
 /* Tech List Grid */
@@ -42,23 +74,42 @@
     gap: var(--spacing-sm);
 }
 
-/* Tech Items */
+/* Tech Items with Enhanced Hover */
 .tech-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-background);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    transition: all var(--transition-default);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-background);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--color-border);
+    transition: all var(--transition-bounce);
     cursor: default;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+    transition: left 0.5s ease;
 }
 
 .tech-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-lg);
     border-color: var(--color-primary);
+    background: var(--color-surface-alt);
+}
+
+.tech-item:hover::before {
+    left: 100%;
 }
 
 /* Tech Icons */

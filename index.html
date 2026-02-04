@@ -20,7 +20,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
     
     <!-- Theme Color (mobile browsers) -->
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#7c3aed">
     
     <!-- JSON-LD Structured Data - Person Schema -->
     <script type="application/ld+json">
@@ -84,7 +84,8 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/technologies.css">
     <link rel="stylesheet" href="css/projects.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/contact-form.css">    <link rel="stylesheet" href="css/blog-homepage.css">    <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -118,7 +119,13 @@
                     <a href="#projets" class="nav-link">Projets</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#parcours" class="nav-link">Parcours</a>
+                </li>
+                <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog/index.html" class="nav-link">Blog</a>
                 </li>
             </ul>
         </div>
@@ -145,7 +152,7 @@
             <!-- Contenu textuel -->
             <div class="hero__content">
                 <h1 class="hero__name">Mystya</h1>
-                <p class="hero__role">Développeur Full-Stack Junior</p>
+                <p class="hero__role">Développeuse Full-Stack Junior</p>
                 <p class="hero__tagline">Passionné par la création d'applications web modernes et performantes</p>
                 
                 <!-- Stack technique -->
@@ -399,27 +406,358 @@
         </div>
     </section>
     
-    <!-- Section Contact & Réseaux Sociaux -->
-    <section id="contact" class="contact">
+    <!-- Section Parcours & Timeline CV -->
+    <section id="parcours" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Mon Parcours</h2>
+            <p class="section-subtitle">Formation et expériences professionnelles</p>
+            
+            <ol class="timeline" aria-label="Timeline professionnelle de Mystya">
+                <!-- Item 1: Formation actuelle IFAPME -->
+                <li class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Alternance Développeur Web Front-End</h3>
+                        <p class="timeline-organization">IFAPME Tournai</p>
+                        <time class="timeline-date" datetime="2024-09">Septembre 2024 - Présent</time>
+                        <p class="timeline-description">
+                            Formation en alternance spécialisée en développement web front-end. Apprentissage des technologies modernes (HTML, CSS, JavaScript, React) et des bonnes pratiques du développement web.
+                        </p>
+                        <ul class="timeline-tags">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>React</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Item 2: CQ7 Gestion de Base -->
+                <li class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">CQ7 Gestion de Base</h3>
+                        <p class="timeline-organization">Collège De La Lys, Comines</p>
+                        <time class="timeline-date" datetime="2022-09">Septembre 2022 - Juin 2023</time>
+                        <p class="timeline-description">
+                            Formation en gestion d'entreprise couvrant les aspects administratifs, comptables et managériaux essentiels à la création et gestion d'une activité professionnelle.
+                        </p>
+                        <ul class="timeline-tags">
+                            <li>Gestion</li>
+                            <li>Comptabilité</li>
+                            <li>Administration</li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Item 3: CQ6 Techniciens en Informatique -->
+                <li class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">CQ6 Techniciens en Informatique</h3>
+                        <p class="timeline-organization">Collège De La Lys, Comines</p>
+                        <time class="timeline-date" datetime="2021-09">Septembre 2021 - Juin 2022</time>
+                        <p class="timeline-description">
+                            Formation technique en informatique couvrant la maintenance hardware, les réseaux, les systèmes d'exploitation et les bases de la programmation.
+                        </p>
+                        <ul class="timeline-tags">
+                            <li>Hardware</li>
+                            <li>Réseaux</li>
+                            <li>Systèmes</li>
+                            <li>Programmation</li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Item 4: Expérience Équipier Polyvalent Action -->
+                <li class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Équipier Polyvalent</h3>
+                        <p class="timeline-organization">Action, Roubaix (CDI)</p>
+                        <time class="timeline-date" datetime="2021-03">Mars 2021 - Juin 2021</time>
+                        <p class="timeline-description">
+                            Maintien d'un établissement propre et agréable, encaissement des produits, et réponse aux besoins des clients. Développement de compétences en service client et travail d'équipe.
+                        </p>
+                        <ul class="timeline-tags">
+                            <li>Service Client</li>
+                            <li>Travail d'équipe</li>
+                            <li>Gestion</li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Item 5: CESS -->
+                <li class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">CESS (Certificat d'Enseignement Secondaire Supérieur)</h3>
+                        <p class="timeline-organization">Collège De La Lys, Comines</p>
+                        <time class="timeline-date" datetime="2021-09">Septembre 2021 - Juin 2022</time>
+                        <p class="timeline-description">
+                            Obtention du diplôme de fin d'études secondaires avec orientation technique en informatique.
+                        </p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+    
+    <!-- Section Blog -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="blog-header">
+                <h2>Dernières Publications</h2>
+                <p>Découvrez mes articles sur le développement web, des tutoriels et mes retours d'expérience</p>
+            </div>
+            
+            <div class="blog-preview-grid">
+                <!-- Article 1: Frontend -->
+                <a href="blog/articles/introduction-developpement-frontend-moderne.html" class="blog-preview-card">
+                    <img src="images/blog/article-1-frontend.webp" 
+                         alt="Développement Frontend Moderne" 
+                         class="blog-preview-thumbnail"
+                         loading="lazy"
+                         onerror="this.src='images/blog/placeholder.svg'">
+                    <div class="blog-preview-content">
+                        <div class="blog-preview-tags">
+                            <span class="blog-tag blog-tag-javascript">JavaScript</span>
+                            <span class="blog-tag blog-tag-html">HTML5</span>
+                        </div>
+                        <h3 class="blog-preview-title">Introduction au Développement Frontend Moderne</h3>
+                        <p class="blog-preview-excerpt">
+                            Découvrez les fondamentaux du développement frontend avec HTML5, CSS3 et JavaScript ES6+. Un guide complet pour débuter avec les bonnes pratiques.
+                        </p>
+                        <div class="blog-preview-meta">
+                            <time datetime="2026-02-04" class="blog-preview-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                </svg>
+                                4 fév 2026
+                            </time>
+                            <span class="blog-preview-reading-time">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                                8 min
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Article 2: React -->
+                <a href="blog/articles/react-hooks-guide-complet.html" class="blog-preview-card">
+                    <img src="images/blog/article-2-react.webp" 
+                         alt="React Hooks Guide" 
+                         class="blog-preview-thumbnail"
+                         loading="lazy"
+                         onerror="this.src='images/blog/placeholder.svg'">
+                    <div class="blog-preview-content">
+                        <div class="blog-preview-tags">
+                            <span class="blog-tag blog-tag-react">React</span>
+                            <span class="blog-tag blog-tag-javascript">JavaScript</span>
+                        </div>
+                        <h3 class="blog-preview-title">React Hooks : Guide Complet pour Débutants</h3>
+                        <p class="blog-preview-excerpt">
+                            Maîtrisez les React Hooks avec des exemples pratiques. Apprenez à créer des composants fonctionnels modernes et performants.
+                        </p>
+                        <div class="blog-preview-meta">
+                            <time datetime="2026-02-03" class="blog-preview-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                </svg>
+                                3 fév 2026
+                            </time>
+                            <span class="blog-preview-reading-time">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                                12 min
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Article 3: Node.js -->
+                <a href="blog/articles/creer-api-rest-nodejs-express.html" class="blog-preview-card">
+                    <img src="images/blog/article-3-nodejs.webp" 
+                         alt="Node.js API REST" 
+                         class="blog-preview-thumbnail"
+                         loading="lazy"
+                         onerror="this.src='images/blog/placeholder.svg'">
+                    <div class="blog-preview-content">
+                        <div class="blog-preview-tags">
+                            <span class="blog-tag blog-tag-javascript">Node.js</span>
+                        </div>
+                        <h3 class="blog-preview-title">Créer une API REST avec Node.js et Express</h3>
+                        <p class="blog-preview-excerpt">
+                            Apprenez à créer une API REST complète avec Node.js, Express et MongoDB pour vos applications web.
+                        </p>
+                        <div class="blog-preview-meta">
+                            <time datetime="2026-02-01" class="blog-preview-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                </svg>
+                                1 fév 2026
+                            </time>
+                            <span class="blog-preview-reading-time">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                                15 min
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="blog-cta">
+                <a href="blog/index.html" class="btn-view-blog">
+                    Voir tous les articles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Contact & Formulaire -->
+    <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Contactez-moi</h2>
-            <p class="contact-message">
-                Intéressé par une collaboration ? Discutons de votre projet !
+            <p class="section-subtitle">
+                Une question, un projet, une opportunité ? N'hésitez pas à me contacter !
             </p>
             
-            <!-- Email -->
-            <div class="contact-email">
-                <a href="mailto:mystya.dev@example.com" class="email-link">
-                    <svg class="email-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <!-- Formulaire de contact -->
+            <form id="contactForm" class="contact-form" novalidate>
+                <div class="form-row">
+                    <!-- Nom complet -->
+                    <div class="form-group">
+                        <label for="contact-name">
+                            Nom complet <span class="required" aria-label="requis">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="contact-name"
+                            name="name"
+                            class="form-input"
+                            required
+                            aria-required="true"
+                            aria-describedby="name-error"
+                            placeholder="Jean Dupont"
+                        >
+                        <span id="name-error" class="error-message" role="alert"></span>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="contact-email">
+                            Email <span class="required" aria-label="requis">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="contact-email"
+                            name="email"
+                            class="form-input"
+                            required
+                            aria-required="true"
+                            aria-describedby="email-error"
+                            placeholder="jean.dupont@exemple.com"
+                        >
+                        <span id="email-error" class="error-message" role="alert"></span>
+                    </div>
+                </div>
+                
+                <!-- Sujet -->
+                <div class="form-group">
+                    <label for="contact-subject">
+                        Sujet <span class="required" aria-label="requis">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="contact-subject"
+                        name="subject"
+                        class="form-input"
+                        required
+                        aria-required="true"
+                        aria-describedby="subject-error"
+                        placeholder="Opportunité de collaboration"
+                    >
+                    <span id="subject-error" class="error-message" role="alert"></span>
+                </div>
+                
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="contact-message">
+                        Message <span class="required" aria-label="requis">*</span>
+                    </label>
+                    <textarea
+                        id="contact-message"
+                        name="message"
+                        class="form-input form-textarea"
+                        required
+                        aria-required="true"
+                        aria-describedby="message-error"
+                        placeholder="Votre message (minimum 10 caractères)..."
+                        rows="6"
+                    ></textarea>
+                    <span id="message-error" class="error-message" role="alert"></span>
+                </div>
+                
+                <!-- Bouton submit -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span class="btn-text">Envoyer le message</span>
+                        <span class="btn-loading" style="display: none;">
+                            <svg class="spinner" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" opacity="0.25"></circle>
+                                <path d="M12 2 A 10 10 0 0 1 22 12" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"></path>
+                            </svg>
+                            Envoi en cours...
+                        </span>
+                    </button>
+                </div>
+                
+                <!-- Message de succès (caché par défaut) -->
+                <div id="successMessage" class="success-message" role="alert" style="display: none;">
+                    <svg class="success-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    <p>Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.</p>
+                </div>
+                
+                <!-- Message d'erreur (caché par défaut) -->
+                <div id="errorMessage" class="error-message-banner" role="alert" style="display: none;">
+                    <svg class="error-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    <p>Erreur lors de l'envoi</p>
+                </div>
+            </form>
+            
+            <!-- Informations de contact alternatives -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg class="contact-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
-                    <span>mystya.dev@example.com</span>
-                </a>
+                    <a href="mailto:tya.desmet@gmail.com" class="contact-link">tya.desmet@gmail.com</a>
+                </div>
+                
+                <div class="contact-item">
+                    <svg class="contact-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>Comines, France</span>
+                </div>
             </div>
             
             <!-- Social Links -->
             <div class="social-links">
-                <a href="https://linkedin.com/in/mystya" 
+                <a href="https://www.linkedin.com/in/tya-desmet" 
                    class="social-link social-link--linkedin" 
                    target="_blank" 
                    rel="noopener noreferrer"
@@ -429,23 +767,13 @@
                     </svg>
                 </a>
                 
-                <a href="https://github.com/mystya" 
+                <a href="https://github.com/Tya-Desmet" 
                    class="social-link social-link--github" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    aria-label="Profil GitHub de Mystya">
                     <svg class="social-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
-                
-                <a href="https://twitter.com/mystya_dev" 
-                   class="social-link social-link--twitter" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   aria-label="Profil Twitter de Mystya">
-                    <svg class="social-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                     </svg>
                 </a>
             </div>
@@ -462,6 +790,8 @@
     </footer>
     
     <script src="js/navigation.js" defer></script>
+    <script src="js/contact-form.js" defer></script>
+    <script src="js/animations.js" defer></script>
     <script src="js/main.js" defer></script>
 </body>
 </html>
