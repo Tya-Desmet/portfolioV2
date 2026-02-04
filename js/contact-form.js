@@ -256,10 +256,10 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Erreur validation Formspree
                 const result = await response.json();
-                const errorMsg = result.errors?.[0]?.message || 'Erreur lors de l\'envoi. Veuillez vérifier vos informations.';
+                const errorMsg = result.errors?.[0]?.message || 'Veuillez vérifier vos informations.';
                 
                 console.error('❌ Erreur Formspree:', result);
-                showErrorMessage(errorMsg);
+                showErrorMessage(`❌ Erreur : ${errorMsg}`);
                 
                 // Réactiver le bouton
                 submitBtn.classList.remove('loading');
@@ -289,7 +289,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function showErrorMessage(message) {
         const errorMessage = document.getElementById('errorMessage');
         if (errorMessage) {
-            errorMessage.querySelector('p').textContent = message;
+            // Mettre à jour le texte du message avec l'icône appropriée
+            const messageText = message.startsWith('⚠️') || message.startsWith('❌') ? message : `❌ ${message}`;
+            errorMessage.querySelector('p').textContent = messageText;
             errorMessage.style.display = 'flex';
             errorMessage.setAttribute('role', 'alert');
             errorMessage.focus();

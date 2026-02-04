@@ -711,6 +711,17 @@
                     <span id="message-error" class="error-message" role="alert"></span>
                 </div>
                 
+                <!-- Honeypot field (protection anti-spam - caché pour utilisateurs humains) -->
+                <input
+                    type="text"
+                    name="website"
+                    id="website"
+                    class="honeypot"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                >
+                
                 <!-- Bouton submit -->
                 <div class="form-actions">
                     <button type="submit" class="btn-submit" id="submitBtn">
@@ -730,7 +741,7 @@
                     <svg class="success-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                     </svg>
-                    <p>Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.</p>
+                    <p>✅ Message envoyé avec succès ! Je vous répondrai sous 48h.</p>
                 </div>
                 
                 <!-- Message d'erreur (caché par défaut) -->

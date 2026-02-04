@@ -118,9 +118,10 @@
     
     /* Projects Section */
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 900px;
         gap: var(--spacing-2xl);
+        justify-content: center;
     }
     
     .project-content {
@@ -202,9 +203,10 @@
     
     /* Projects Section */
     .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+        max-width: 1200px;
         gap: var(--spacing-2xl);
+        justify-content: center;
     }
     
     .project-content {
@@ -277,7 +279,8 @@
     }
     
     .projects-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(380px, 420px));
+        max-width: 1400px;
     }
 }
 

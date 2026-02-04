@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/navigation.css">
     <link rel="stylesheet" href="../../css/article-detail.css">
+    <link rel="stylesheet" href="../../css/article-navigation.css">
     <link rel="stylesheet" href="../../css/code-highlight.css">
     <link rel="stylesheet" href="../../css/footer.css">
     
@@ -125,22 +126,11 @@
                     </span>
                 </div>
                 
-                <p>
-                    Maîtrisez la conception et l'utilisation des API REST. De la théorie à la pratique avec Node.js, Express, et les meilleures pratiques de l'industrie.
-                </p>
-                
                 <div class="article-tags">
-                    <span class="tag">Node.js</span>
-                    <span class="tag">API</span>
-                    <span class="tag">REST</span>
-                    <span class="tag">Backend</span>
-                    <span class="tag">Express</span>
+                    <span class="tag tag-javascript">Node.js</span>
+                    <span class="tag tag-tutorial">API REST</span>
+                    <span class="tag tag-tutorial">Backend</span>
                 </div>
-                
-                <figure class="article-hero-image">
-                    <img src="../../images/blog/placeholder.svg" alt="Diagramme d'architecture API REST avec méthodes HTTP" loading="lazy">
-                    <figcaption>Maîtrisez la conception d'API REST avec les bonnes pratiques de l'industrie</figcaption>
-                </figure>
             </header>
 
             <!-- Article Content -->
@@ -289,17 +279,28 @@ GET    /api/users/123/posts/456    # Post 456 de l'utilisateur 123</code></pre>
             <!-- Article Footer -->
             <footer class="article-footer">
                 <!-- Article Navigation: Previous/Next -->
-                <nav class="article-navigation article-navigation--single" aria-label="Article Navigation">
-                    <!-- Previous Article -->
-                    <a href="guide-complet-react-hooks.html" class="nav-article nav-article-prev">
-                        <span class="nav-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
-                            </svg>
-                            Article précédent
-                        </span>
-                        <span class="nav-title">Guide Complet des React Hooks</span>
-                    </a>
+                <nav class="article-navigation" aria-label="Navigation entre articles">
+                    <div class="prev-next-nav">
+                        <!-- Previous Article (no next for last article) -->
+                        <a href="guide-complet-react-hooks.html" class="nav-article prev-article">
+                            <span class="nav-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
+                                </svg>
+                                Article Précédent
+                            </span>
+                            <div class="nav-article-preview">
+                                <img src="../../images/blog/article-2-react.webp" 
+                                     alt="Guide React Hooks" 
+                                     class="nav-thumbnail"
+                                     onerror="this.src='../../images/blog/placeholder.svg'">
+                                <div class="nav-content">
+                                    <h3>Guide Complet des React Hooks</h3>
+                                    <p class="nav-excerpt">Maîtrisez les React Hooks avec des exemples pratiques et créez des composants fonctionnels modernes.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </nav>
                 
                 <!-- Related Articles -->

@@ -94,6 +94,7 @@
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/navigation.css">
     <link rel="stylesheet" href="../../css/article-detail.css">
+    <link rel="stylesheet" href="../../css/article-navigation.css">
     <link rel="stylesheet" href="../../css/code-highlight.css">
     <link rel="stylesheet" href="../../css/footer.css">
     
@@ -512,17 +513,28 @@ users.forEach(({ name, age }) => {
             <!-- Article Footer -->
             <footer class="article-footer">
                 <!-- Article Navigation: Previous/Next -->
-                <nav class="article-navigation article-navigation--single" aria-label="Article Navigation">
-                    <!-- Next Article -->
-                    <a href="react-hooks-guide-complet.html" class="nav-article nav-article-next">
-                        <span class="nav-label">
-                            Article suivant
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                            </svg>
-                        </span>
-                        <span class="nav-title">React Hooks : Guide Complet pour Débutants</span>
-                    </a>
+                <nav class="article-navigation" aria-label="Navigation entre articles">
+                    <div class="prev-next-nav">
+                        <!-- Next Article (no previous for first article) -->
+                        <a href="guide-complet-react-hooks.html" class="nav-article next-article">
+                            <span class="nav-label">
+                                Article Suivant
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                                </svg>
+                            </span>
+                            <div class="nav-article-preview">
+                                <img src="../../images/blog/article-2-react.webp" 
+                                     alt="Guide React Hooks" 
+                                     class="nav-thumbnail"
+                                     onerror="this.src='../../images/blog/placeholder.svg'">
+                                <div class="nav-content">
+                                    <h3>Guide Complet des React Hooks</h3>
+                                    <p class="nav-excerpt">Maîtrisez les React Hooks avec des exemples pratiques et créez des composants fonctionnels modernes.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </nav>
                 
                 <!-- Related Articles -->

@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/navigation.css">
     <link rel="stylesheet" href="../../css/article-detail.css">
+    <link rel="stylesheet" href="../../css/article-navigation.css">
     <link rel="stylesheet" href="../../css/code-highlight.css">
     <link rel="stylesheet" href="../../css/footer.css">
     
@@ -124,21 +125,11 @@
                     </span>
                 </div>
                 
-                <p>
-                    Découvrez comment utiliser les React Hooks pour créer des composants fonctionnels puissants et maintenables. De useState à useContext, en passant par les hooks personnalisés.
-                </p>
-                
                 <div class="article-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Hooks</span>
-                    <span class="tag">Frontend</span>
+                    <span class="tag tag-react">React</span>
+                    <span class="tag tag-javascript">JavaScript</span>
+                    <span class="tag tag-tutorial">Tutorial</span>
                 </div>
-                
-                <figure class="article-hero-image">
-                    <img src="../../images/blog/placeholder.svg" alt="Illustration React Hooks avec exemples de code" loading="lazy">
-                    <figcaption>Les React Hooks transforment la façon d'écrire des composants React</figcaption>
-                </figure>
             </header>
 
             <!-- Article Content -->
@@ -233,28 +224,48 @@ function Counter() {
             <!-- Article Footer -->
             <footer class="article-footer">
                 <!-- Article Navigation: Previous/Next -->
-                <nav class="article-navigation" aria-label="Article Navigation">
-                    <!-- Previous Article -->
-                    <a href="introduction-developpement-frontend-moderne.html" class="nav-article nav-article-prev">
-                        <span class="nav-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
-                            </svg>
-                            Article précédent
-                        </span>
-                        <span class="nav-title">Introduction au Développement Frontend Moderne</span>
-                    </a>
-                    
-                    <!-- Next Article -->
-                    <a href="api-rest-guide-pratique.html" class="nav-article nav-article-next">
-                        <span class="nav-label">
-                            Article suivant
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                            </svg>
-                        </span>
-                        <span class="nav-title">API REST : Guide Pratique</span>
-                    </a>
+                <nav class="article-navigation" aria-label="Navigation entre articles">
+                    <div class="prev-next-nav">
+                        <!-- Previous Article -->
+                        <a href="introduction-developpement-frontend-moderne.html" class="nav-article prev-article">
+                            <span class="nav-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
+                                </svg>
+                                Article Précédent
+                            </span>
+                            <div class="nav-article-preview">
+                                <img src="../../images/blog/article-1-frontend.webp" 
+                                     alt="Introduction Frontend Moderne" 
+                                     class="nav-thumbnail"
+                                     onerror="this.src='../../images/blog/placeholder.svg'">
+                                <div class="nav-content">
+                                    <h3>Introduction au Développement Frontend Moderne</h3>
+                                    <p class="nav-excerpt">Découvrez les fondamentaux du développement frontend moderne avec HTML5, CSS3, et JavaScript ES6+.</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Next Article -->
+                        <a href="api-rest-guide-pratique.html" class="nav-article next-article">
+                            <span class="nav-label">
+                                Article Suivant
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                                </svg>
+                            </span>
+                            <div class="nav-article-preview">
+                                <img src="../../images/blog/article-3-nodejs.webp" 
+                                     alt="API REST Guide" 
+                                     class="nav-thumbnail"
+                                     onerror="this.src='../../images/blog/placeholder.svg'">
+                                <div class="nav-content">
+                                    <h3>API REST : Guide Pratique pour Développeurs</h3>
+                                    <p class="nav-excerpt">Apprenez à concevoir et utiliser des API REST efficaces avec Node.js et Express.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </nav>
                 
                 <!-- Related Articles -->
