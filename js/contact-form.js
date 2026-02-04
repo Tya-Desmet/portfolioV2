@@ -206,43 +206,69 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
 
+        // Masquer les messages précédents
+        successMessage.style.display = 'none';
+        const errorMessage = document.getElementById('errorMessage');
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+
+        // Collecter les données du formulaire
+        const formData = {
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            subject: subjectInput.value.trim(),
+            message: messageInput.value.trim()
+        };
+
         try {
-            // TODO Story 3.3: Intégration backend (Formspree ou Node.js)
-            // Pour l'instant, simuler un envoi réussi après 2 secondes
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Envoi vers Formspree (Story 3.3)
+            const response = await fetch('https://formspree.io/f/xrelnyrq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
 
-            // Collecter les données du formulaire
-            const formData = {
-                name: nameInput.value.trim(),
-                email: emailInput.value.trim(),
-                subject: subjectInput.value.trim(),
-                message: messageInput.value.trim(),
-                timestamp: new Date().toISOString()
-            };
+            if (response.ok) {
+                // Succès - Email envoyé
+                console.log('✅ Email envoyé avec succès via Formspree');
 
-            console.log('Données du formulaire (Story 3.2 - Frontend only):', formData);
+                // Afficher le message de succès
+                successMessage.style.display = 'flex';
+                successMessage.setAttribute('role', 'alert');
+                successMessage.focus();
 
-            // Afficher le message de succès
-            successMessage.style.display = 'flex';
-            successMessage.setAttribute('role', 'alert');
-            successMessage.focus();
+                // Réinitialiser le formulaire
+                resetForm();
 
-            // Réinitialiser le formulaire
-            resetForm();
+                // Masquer le message de succès après 8 secondes
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 8000);
 
-            // Masquer le message de succès après 5 secondes
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
+                // Scroll vers le message de succès
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-            // Scroll vers le message de succès
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                // Erreur validation Formspree
+                const result = await response.json();
+                const errorMsg = result.errors?.[0]?.message || 'Erreur lors de l\'envoi. Veuillez vérifier vos informations.';
+                
+                console.error('❌ Erreur Formspree:', result);
+                showErrorMessage(errorMsg);
+                
+                // Réactiver le bouton
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
 
         } catch (error) {
-            console.error('Erreur lors de l\'envoi du formulaire:', error);
+            console.error('❌ Erreur réseau:', error);
             
-            // Afficher un message d'erreur générique
-            alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement par email.');
+            // Erreur réseau ou serveur
+            showErrorMessage('⚠️ Erreur technique. Veuillez réessayer ou me contacter directement à tya.desmet@gmail.com');
             
             // Réactiver le bouton
             submitBtn.classList.remove('loading');
@@ -254,8 +280,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // INITIALISATION
     // ===================================================================
 
+    /**
+     * Affiche un message d'erreur au-dessus du formulaire
+     * @param {string} message - Message d'erreur à afficher
+     */
+    function showErrorMessage(message) {
+        const errorMessage = document.getElementById('errorMessage');
+        if (errorMessage) {
+            errorMessage.querySelector('p').textContent = message;
+            errorMessage.style.display = 'flex';
+            errorMessage.setAttribute('role', 'alert');
+            errorMessage.focus();
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Masquer après 10 secondes
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 10000);
+        }
+    }
+
     // Désactiver le bouton submit au chargement
     submitBtn.disabled = true;
 
     console.log('✅ Contact form validation initialized (Story 3.2)');
+    console.log('✅ Formspree integration active (Story 3.3)');
 });
