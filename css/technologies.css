@@ -1,9 +1,21 @@
-/* Technologies Section Styles with Purple Theme */
+/* Technologies Section Styles with Purple Theme - Mobile First */
 
 .technologies {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: var(--spacing-2xl) var(--spacing-sm);
     background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
     position: relative;
+}
+
+@media (min-width: 640px) {
+    .technologies {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .technologies {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
 }
 
 .technologies .container {
@@ -64,22 +76,34 @@
     border-radius: var(--radius-full);
 }
 
-/* Tech List Grid */
+/* Tech List Grid - Mobile First */
 .tech-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--spacing-sm);
 }
 
-/* Tech Items with Enhanced Hover */
+@media (min-width: 480px) {
+    .tech-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .tech-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* Tech Items with Enhanced Hover - Mobile First */
 .tech-item {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
     background: var(--color-background);
     border-radius: var(--radius-lg);
     border: 2px solid var(--color-border);
@@ -88,6 +112,12 @@
     box-shadow: var(--shadow-sm);
     position: relative;
     overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .tech-item {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
 }
 
 .tech-item::before {

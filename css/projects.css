@@ -1,9 +1,21 @@
-/* Projects Section Styles with Purple Theme */
+/* Projects Section Styles with Purple Theme - Mobile First */
 
 .projects {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: var(--spacing-2xl) var(--spacing-sm);
     background: var(--color-background);
     position: relative;
+}
+
+@media (min-width: 640px) {
+    .projects {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .projects {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
 }
 
 .projects .container {
@@ -111,9 +123,9 @@
     transform: scale(1.05);
 }
 
-/* Project Content */
+/* Project Content - Mobile First */
 .project-content {
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-lg);
     position: relative;
     z-index: 2;
     flex: 1;
@@ -122,13 +134,37 @@
     gap: var(--spacing-md);
 }
 
+@media (min-width: 640px) {
+    .project-content {
+        padding: var(--spacing-xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-content {
+        padding: var(--spacing-2xl);
+    }
+}
+
 .project-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-text);
     margin: 0;
     line-height: 1.3;
     letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+    .project-title {
+        font-size: 1.375rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-title {
+        font-size: 1.5rem;
+    }
 }
 
 .project-description {
@@ -164,14 +200,21 @@
     transform: translateY(-2px);
 }
 
-/* Project Links avec Purple Theme */
+/* Project Links avec Purple Theme - Mobile First */
 .project-links {
     display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    flex-direction: column;
     margin-top: auto;
     padding-top: var(--spacing-lg);
     border-top: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+@media (min-width: 480px) {
+    .project-links {
+        flex-direction: row;
+        gap: var(--spacing-sm);
+    }
 }
 
 .project-link {
@@ -180,7 +223,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
@@ -193,6 +236,12 @@
     z-index: 3;
     cursor: pointer;
     letter-spacing: 0.01em;
+}
+
+@media (min-width: 640px) {
+    .project-link {
+        padding: 0.75rem 1.25rem;
+    }
 }
 
 .project-link::before {

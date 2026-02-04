@@ -25,13 +25,26 @@
 .contact-form {
     max-width: 800px;
     margin: 0 auto 3rem;
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-lg);
     background: var(--color-background);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     border: 2px solid var(--color-border);
     position: relative;
     overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .contact-form {
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact-form {
+        padding: var(--spacing-2xl);
+    }
 }
 
 .contact-form::before {

@@ -1,11 +1,23 @@
 /* ===================================================================
-   BLOG SECTION ON HOMEPAGE avec UX optimisée
+   BLOG SECTION ON HOMEPAGE avec UX optimisée - Mobile First
    Story 4.5: Integration with main site
    =================================================================== */
 
 .blog-section {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: var(--spacing-2xl) var(--spacing-sm);
     background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+}
+
+@media (min-width: 640px) {
+    .blog-section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .blog-section {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
 }
 
 .blog-section .container {
@@ -15,29 +27,75 @@
 
 .blog-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .blog-header {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .blog-header {
+        margin-bottom: 4rem;
+    }
 }
 
 .blog-header h2 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--text-primary, #1a1a1a);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .blog-header h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .blog-header h2 {
+        font-size: 2.5rem;
+    }
 }
 
 .blog-header p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--text-secondary, #666);
     max-width: 600px;
     margin: 0 auto;
+    padding: 0 var(--spacing-sm);
 }
 
-/* Blog Cards Grid */
+@media (min-width: 640px) {
+    .blog-header p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Blog Cards Grid - Mobile First */
 .blog-preview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .blog-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .blog-preview-grid {
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 3rem;
+    }
 }
 
 .blog-preview-card {
