@@ -1,25 +1,50 @@
 /* CSS Custom Properties - Design Tokens */
 
 :root {
-    /* Colors */
-    --color-primary: #2563eb;        /* Blue for accents and interactive elements */
+    /* Purple Color Palette */
+    --color-primary: #7c3aed;        /* Vivid Purple - Main brand color */
+    --color-primary-light: #a78bfa;  /* Light Purple - Hover states */
+    --color-primary-dark: #5b21b6;   /* Dark Purple - Active states */
+    --color-secondary: #ec4899;      /* Pink accent - Complementary */
+    --color-accent: #06b6d4;         /* Cyan accent - Tertiary */
+    
+    /* Text Colors */
     --color-text: #1f2937;           /* Dark gray for primary text */
     --color-text-light: #6b7280;     /* Light gray for secondary text */
+    --color-text-muted: #9ca3af;     /* Muted gray for tertiary text */
+    
+    /* Background Colors */
     --color-background: #ffffff;     /* White background */
-    --color-surface: #f9fafb;        /* Light gray for surfaces (cards, badges) */
-    --color-border: #e5e7eb;         /* Border color */
+    --color-surface: #faf5ff;        /* Light purple tint for surfaces */
+    --color-surface-alt: #f5f3ff;    /* Alternative surface color */
+    --color-border: #e9d5ff;         /* Light purple border */
+    
+    /* Gradient Definitions */
+    --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+    --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #7c3aed 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%);
+    
+    /* Purple Shadows (colored shadows for depth) */
+    --shadow-sm: 0 1px 2px 0 rgba(124, 58, 237, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(124, 58, 237, 0.12);
+    --shadow-lg: 0 10px 15px -3px rgba(124, 58, 237, 0.15);
+    --shadow-xl: 0 20px 25px -5px rgba(124, 58, 237, 0.18);
+    --shadow-purple-glow: 0 0 30px rgba(124, 58, 237, 0.3);
     
     /* Typography */
     --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     
     /* Font Sizes */
-    --font-size-h1: 3rem;            /* 48px - Hero name */
-    --font-size-h2: 2rem;            /* 32px - Hero role */
+    --font-size-h1: 3.5rem;          /* 56px - Hero name (increased) */
+    --font-size-h2: 2.25rem;         /* 36px - Hero role (increased) */
+    --font-size-h3: 1.875rem;        /* 30px - Section headings */
     --font-size-body: 1.125rem;      /* 18px - Hero tagline */
     --font-size-small: 1rem;         /* 16px - Stack badges */
+    --font-size-xs: 0.875rem;        /* 14px - Captions */
     
     /* Font Weights */
     --font-weight-bold: 700;
+    --font-weight-semibold: 600;
     --font-weight-medium: 500;
     --font-weight-normal: 400;
     
@@ -30,6 +55,7 @@
     --spacing-lg: 2rem;     /* 32px */
     --spacing-xl: 3rem;     /* 48px */
     --spacing-2xl: 4rem;    /* 64px */
+    --spacing-3xl: 6rem;    /* 96px */
     
     /* Breakpoints (for reference in media queries) */
     --breakpoint-mobile: 320px;
@@ -38,19 +64,71 @@
     --breakpoint-wide: 1440px;
     
     /* Transitions */
+    --transition-fast: 0.15s ease;
     --transition-default: 0.3s ease;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition-slow: 0.5s ease;
+    --transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
     /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 6px;
-    --radius-lg: 8px;
-    --radius-full: 50%;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Z-index Scale */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal: 1040;
+    --z-tooltip: 1050;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(124, 58, 237, 0.1);
+    --glass-blur: blur(12px);
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(124, 58, 237, 0.6);
+    }
 }
 
 /* Base Typography */

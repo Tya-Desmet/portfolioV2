@@ -1,19 +1,21 @@
 /* ===================================================================
-   FORMULAIRE DE CONTACT - VARIABLES & BASE
+   FORMULAIRE DE CONTACT - VARIABLES & BASE avec Purple Theme
    =================================================================== */
 
 .contact-section {
-    padding: 4rem 0;
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
 }
 
 .section-subtitle {
     text-align: center;
-    color: var(--text-secondary);
+    color: var(--color-text-light);
     font-size: 1.125rem;
-    margin-bottom: 3rem;
-    max-width: 600px;
+    margin-bottom: var(--spacing-2xl);
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
 }
 
 /* ===================================================================
@@ -21,12 +23,25 @@
    =================================================================== */
 
 .contact-form {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto 3rem;
-    padding: 2rem;
-    background: var(--card-bg);
-    border-radius: var(--radius-large);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-2xl);
+    background: var(--color-background);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
 }
 
 .form-row {
@@ -68,60 +83,63 @@
 }
 
 /* ===================================================================
-   INPUTS & TEXTAREA STYLES
+   INPUTS & TEXTAREA STYLES avec Purple Theme
    =================================================================== */
 
 .form-input {
     width: 100%;
-    padding: 0.875rem 1rem;
-    border: 2px solid var(--border-color, #ddd);
-    border-radius: var(--radius-medium, 8px);
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
     font-family: inherit;
     font-size: 1rem;
-    color: var(--text-primary);
-    background: var(--bg-primary, #fff);
-    transition: all 0.3s ease;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: all var(--transition-default);
     outline: none;
+    box-shadow: var(--shadow-sm);
 }
 
 .form-input:hover {
-    border-color: var(--primary-hover, #0056b3);
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-md);
 }
 
 .form-input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15), var(--shadow-md);
+    background: var(--color-surface-alt);
 }
 
-/* État valide */
+/* État valide avec vert */
 .form-input.valid {
-    border-color: #28a745;
+    border-color: #10b981;
 }
 
 .form-input.valid:focus {
-    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
 }
 
-/* État invalide */
+/* État invalide avec rouge */
 .form-input.invalid {
-    border-color: #dc3545;
+    border-color: #ef4444;
 }
 
 .form-input.invalid:focus {
-    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
 }
 
 /* Textarea spécifique */
 .form-textarea {
     resize: vertical;
-    min-height: 150px;
-    max-height: 400px;
-    line-height: 1.6;
+    min-height: 180px;
+    max-height: 500px;
+    line-height: 1.7;
 }
 
 /* Placeholder styles */
 .form-input::placeholder {
-    color: #999;
+    color: var(--color-text-muted);
     opacity: 1;
 }
 
@@ -147,39 +165,58 @@
 }
 
 /* ===================================================================
-   BOUTON SUBMIT
+   BOUTON SUBMIT avec Purple Gradient
    =================================================================== */
 
 .form-actions {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: var(--spacing-xl);
 }
 
 .btn-submit {
-    padding: 1rem 2.5rem;
-    background: #007bff;
-    color: #ffffff;
+    padding: 1.125rem 3rem;
+    background: var(--gradient-primary);
+    background-size: 200% auto;
+    color: var(--color-background);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
     font-size: 1.0625rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    transition: all var(--transition-default);
+    box-shadow: var(--shadow-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    min-width: 220px;
-    letter-spacing: 0.3px;
+    gap: var(--spacing-sm);
+    min-width: 240px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
 }
 
 .btn-submit:hover:not(:disabled) {
-    background: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-purple-glow);
+    background-position: right center;
+}
+
+.btn-submit:hover:not(:disabled)::before {
+    left: 100%;
+}
 }
 
 .btn-submit:active:not(:disabled) {

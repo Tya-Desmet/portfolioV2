@@ -20,7 +20,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
     
     <!-- Theme Color (mobile browsers) -->
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#7c3aed">
     
     <!-- JSON-LD Structured Data - Person Schema -->
     <script type="application/ld+json">
@@ -85,8 +85,7 @@
     <link rel="stylesheet" href="css/technologies.css">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/timeline.css">
-    <link rel="stylesheet" href="css/contact-form.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/contact-form.css">    <link rel="stylesheet" href="css/blog-homepage.css">    <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -125,6 +124,9 @@
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a href="blog/index.html" class="nav-link">Blog</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -150,7 +152,7 @@
             <!-- Contenu textuel -->
             <div class="hero__content">
                 <h1 class="hero__name">Mystya</h1>
-                <p class="hero__role">Développeur Full-Stack Junior</p>
+                <p class="hero__role">Développeuse Full-Stack Junior</p>
                 <p class="hero__tagline">Passionné par la création d'applications web modernes et performantes</p>
                 
                 <!-- Stack technique -->
@@ -474,7 +476,7 @@
                     <div class="timeline-content">
                         <h3 class="timeline-title">Équipier Polyvalent</h3>
                         <p class="timeline-organization">Action, Roubaix (CDI)</p>
-                        <time class="timeline-date" datetime="2021-03">Mars 2021 - Présent</time>
+                        <time class="timeline-date" datetime="2021-03">Mars 2021 - Juin 2021</time>
                         <p class="timeline-description">
                             Maintien d'un établissement propre et agréable, encaissement des produits, et réponse aux besoins des clients. Développement de compétences en service client et travail d'équipe.
                         </p>
@@ -499,6 +501,125 @@
                     </div>
                 </li>
             </ol>
+        </div>
+    </section>
+    
+    <!-- Section Blog -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="blog-header">
+                <h2>Dernières Publications</h2>
+                <p>Découvrez mes articles sur le développement web, des tutoriels et mes retours d'expérience</p>
+            </div>
+            
+            <div class="blog-preview-grid">
+                <!-- Article 1: Frontend -->
+                <a href="blog/articles/introduction-developpement-frontend-moderne.html" class="blog-preview-card">
+                    <img src="images/blog/article-1-frontend.webp" 
+                         alt="Développement Frontend Moderne" 
+                         class="blog-preview-thumbnail"
+                         loading="lazy"
+                         onerror="this.src='images/blog/placeholder.svg'">
+                    <div class="blog-preview-content">
+                        <div class="blog-preview-tags">
+                            <span class="blog-tag blog-tag-javascript">JavaScript</span>
+                            <span class="blog-tag blog-tag-html">HTML5</span>
+                        </div>
+                        <h3 class="blog-preview-title">Introduction au Développement Frontend Moderne</h3>
+                        <p class="blog-preview-excerpt">
+                            Découvrez les fondamentaux du développement frontend avec HTML5, CSS3 et JavaScript ES6+. Un guide complet pour débuter avec les bonnes pratiques.
+                        </p>
+                        <div class="blog-preview-meta">
+                            <time datetime="2026-02-04" class="blog-preview-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                </svg>
+                                4 fév 2026
+                            </time>
+                            <span class="blog-preview-reading-time">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                                8 min
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Article 2: React -->
+                <a href="blog/articles/react-hooks-guide-complet.html" class="blog-preview-card">
+                    <img src="images/blog/article-2-react.webp" 
+                         alt="React Hooks Guide" 
+                         class="blog-preview-thumbnail"
+                         loading="lazy"
+                         onerror="this.src='images/blog/placeholder.svg'">
+                    <div class="blog-preview-content">
+                        <div class="blog-preview-tags">
+                            <span class="blog-tag blog-tag-react">React</span>
+                            <span class="blog-tag blog-tag-javascript">JavaScript</span>
+                        </div>
+                        <h3 class="blog-preview-title">React Hooks : Guide Complet pour Débutants</h3>
+                        <p class="blog-preview-excerpt">
+                            Maîtrisez les React Hooks avec des exemples pratiques. Apprenez à créer des composants fonctionnels modernes et performants.
+                        </p>
+                        <div class="blog-preview-meta">
+                            <time datetime="2026-02-03" class="blog-preview-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                </svg>
+                                3 fév 2026
+                            </time>
+                            <span class="blog-preview-reading-time">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                                12 min
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Article 3: Node.js -->
+                <a href="blog/articles/creer-api-rest-nodejs-express.html" class="blog-preview-card">
+                    <img src="images/blog/article-3-nodejs.webp" 
+                         alt="Node.js API REST" 
+                         class="blog-preview-thumbnail"
+                         loading="lazy"
+                         onerror="this.src='images/blog/placeholder.svg'">
+                    <div class="blog-preview-content">
+                        <div class="blog-preview-tags">
+                            <span class="blog-tag blog-tag-javascript">Node.js</span>
+                        </div>
+                        <h3 class="blog-preview-title">Créer une API REST avec Node.js et Express</h3>
+                        <p class="blog-preview-excerpt">
+                            Apprenez à créer une API REST complète avec Node.js, Express et MongoDB pour vos applications web.
+                        </p>
+                        <div class="blog-preview-meta">
+                            <time datetime="2026-02-01" class="blog-preview-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                </svg>
+                                1 fév 2026
+                            </time>
+                            <span class="blog-preview-reading-time">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                                15 min
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="blog-cta">
+                <a href="blog/index.html" class="btn-view-blog">
+                    Voir tous les articles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
     
@@ -670,6 +791,7 @@
     
     <script src="js/navigation.js" defer></script>
     <script src="js/contact-form.js" defer></script>
+    <script src="js/animations.js" defer></script>
     <script src="js/main.js" defer></script>
 </body>
 </html>

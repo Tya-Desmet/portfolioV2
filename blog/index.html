@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Technique - Tya Desmet | Articles JavaScript React Node.js</title>
+    <meta name="description" content="Articles techniques sur JavaScript, React, Node.js, et développement full-stack par Tya Desmet. Tutoriels, astuces, et retours d'expérience.">
+    <meta name="keywords" content="blog développement, JavaScript, React, Node.js, tutoriels web, Tya Desmet">
+    <meta name="author" content="Tya Desmet">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tyadesmet.dev/blog/">
+    <meta property="og:title" content="Blog Technique - Tya Desmet">
+    <meta property="og:description" content="Articles techniques sur JavaScript, React, Node.js, et développement full-stack.">
+    <meta property="og:image" content="https://tyadesmet.dev/images/mystya-photo.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/blog-listing.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" aria-label="Navigation principale">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand">Tya Desmet</a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="burger-icon"></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html#hero" class="nav-link">Accueil</a></li>
+                <li><a href="../index.html#technologies" class="nav-link">Technologies</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projets</a></li>
+                <li><a href="../index.html#timeline" class="nav-link">Parcours</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link active">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content" class="blog-listing">
+        <div class="container">
+            <!-- Hero Section Blog -->
+            <header class="blog-header">
+                <h1 class="blog-title">Blog Technique</h1>
+                <p class="blog-intro">
+                    Bienvenue sur mon blog ! Ici, je partage mes apprentissages, tutoriels, et réflexions sur le développement web full-stack. 
+                    Vous trouverez des articles sur JavaScript, React, Node.js, et bien plus encore.
+                </p>
+            </header>
+            
+            <!-- Filter Section -->
+            <section class="blog-filters">
+                <div class="filters-header">
+                    <h2 class="filters-title">Filtrer par sujet</h2>
+                    <button id="resetFilters" class="btn-reset" aria-label="Réinitialiser les filtres">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                        </svg>
+                        Réinitialiser
+                    </button>
+                </div>
+                <div class="filters-tags" role="group" aria-label="Filtres par tags">
+                    <button class="filter-tag filter-tag-all active" data-filter="all">
+                        Tous <span class="tag-count">(3)</span>
+                    </button>
+                    <button class="filter-tag filter-tag-javascript" data-filter="javascript">
+                        JavaScript <span class="tag-count">(3)</span>
+                    </button>
+                    <button class="filter-tag filter-tag-react" data-filter="react">
+                        React <span class="tag-count">(1)</span>
+                    </button>
+                    <button class="filter-tag filter-tag-nodejs" data-filter="nodejs">
+                        Node.js <span class="tag-count">(1)</span>
+                    </button>
+                    <button class="filter-tag filter-tag-html" data-filter="html5">
+                        HTML5 <span class="tag-count">(1)</span>
+                    </button>
+                    <button class="filter-tag filter-tag-css" data-filter="css3">
+                        CSS3 <span class="tag-count">(1)</span>
+                    </button>
+                    <button class="filter-tag filter-tag-tutorial" data-filter="tutorial">
+                        Tutorial <span class="tag-count">(1)</span>
+                    </button>
+                </div>
+                <div id="filterResults" class="filter-results" aria-live="polite"></div>
+            </section>
+            
+            <!-- Articles Grid -->
+            <div class="articles-grid">
+                <!-- Article 1: Introduction au développement frontend moderne -->
+                <article class="article-card" data-tags="javascript html5 css3 tutorial">
+                    <a href="articles/introduction-developpement-frontend-moderne.html" class="article-link">
+                        <div class="article-thumbnail-wrapper">
+                            <img src="../images/blog/article-1-frontend.webp" 
+                                 alt="Illustration développement frontend moderne" 
+                                 class="article-thumbnail" 
+                                 loading="lazy"
+                                 onerror="this.src='../images/blog/placeholder.svg'">
+                        </div>
+                        <div class="article-content">
+                            <h2 class="article-title">Introduction au Développement Frontend Moderne</h2>
+                            <p class="article-excerpt">
+                                Découvrez les fondamentaux du développement frontend moderne avec HTML5, CSS3, et JavaScript ES6+. 
+                                Un guide complet pour débuter avec les bonnes pratiques et outils essentiels.
+                            </p>
+                            <div class="article-meta">
+                                <time datetime="2026-02-04" class="article-date">
+                                    <svg class="icon-calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                    </svg>
+                                    4 février 2026
+                                </time>
+                                <span class="reading-time">
+                                    <svg class="icon-clock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                    </svg>
+                                    8 min
+                                </span>
+                            </div>
+                            <div class="article-tags">
+                                <span class="tag tag-javascript">JavaScript</span>
+                                <span class="tag tag-html">HTML5</span>
+                                <span class="tag tag-css">CSS3</span>
+                                <span class="tag tag-tutorial">Tutorial</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Article 2: React hooks expliqués -->
+                <article class="article-card" data-tags="react javascript tutorial">
+                    <a href="articles/react-hooks-guide-complet.html" class="article-link">
+                        <div class="article-thumbnail-wrapper">
+                            <img src="../images/blog/article-2-react.webp" 
+                                 alt="Illustration React Hooks" 
+                                 class="article-thumbnail" 
+                                 loading="lazy"
+                                 onerror="this.src='../images/blog/placeholder.svg'">
+                        </div>
+                        <div class="article-content">
+                            <h2 class="article-title">React Hooks : Guide Complet pour Débutants</h2>
+                            <p class="article-excerpt">
+                                Maîtrisez les React Hooks (useState, useEffect, useContext) avec des exemples pratiques. 
+                                Apprenez à créer des composants fonctionnels modernes et performants.
+                            </p>
+                            <div class="article-meta">
+                                <time datetime="2026-02-03" class="article-date">
+                                    <svg class="icon-calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                    </svg>
+                                    3 février 2026
+                                </time>
+                                <span class="reading-time">
+                                    <svg class="icon-clock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                    </svg>
+                                    12 min
+                                </span>
+                            </div>
+                            <div class="article-tags">
+                                <span class="tag tag-react">React</span>
+                                <span class="tag tag-javascript">JavaScript</span>
+                                <span class="tag tag-tutorial">Tutorial</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Article 3: Node.js et Express -->
+                <article class="article-card" data-tags="nodejs javascript tutorial">
+                    <a href="articles/creer-api-rest-nodejs-express.html" class="article-link">
+                        <div class="article-thumbnail-wrapper">
+                            <img src="../images/blog/article-3-nodejs.webp" 
+                                 alt="Illustration Node.js API REST" 
+                                 class="article-thumbnail" 
+                                 loading="lazy"
+                                 onerror="this.src='../images/blog/placeholder.svg'">
+                        </div>
+                        <div class="article-content">
+                            <h2 class="article-title">Créer une API REST avec Node.js et Express</h2>
+                            <p class="article-excerpt">
+                                Construisez votre première API REST professionnelle avec Node.js, Express, et PostgreSQL. 
+                                Authentification, validation, et bonnes pratiques backend incluses.
+                            </p>
+                            <div class="article-meta">
+                                <time datetime="2026-02-01" class="article-date">
+                                    <svg class="icon-calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                                    </svg>
+                                    1 février 2026
+                                </time>
+                                <span class="reading-time">
+                                    <svg class="icon-clock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                    </svg>
+                                    15 min
+                                </span>
+                            </div>
+                            <div class="article-tags">
+                                <span class="tag tag-nodejs">Node.js</span>
+                                <span class="tag tag-backend">Backend</span>
+                                <span class="tag tag-api">API REST</span>
+                                <span class="tag tag-tutorial">Tutorial</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+            
+            <!-- Empty State (si aucun article à terme) -->
+            <!-- <div class="empty-state" style="display: none;">
+                <p>Aucun article publié pour le moment. Revenez bientôt !</p>
+            </div> -->
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tya Desmet. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <script src="../js/navigation.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/blog-filter.js" defer></script>
+</body>
+</html>

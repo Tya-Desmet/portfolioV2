@@ -36,6 +36,16 @@
     /* Projects Section */
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+    
+    .project-content {
+        padding: var(--spacing-xl);
+    }
+    
+    .project-link {
+        flex: 1;
+        min-width: 120px;
     }
     
     /* Contact Section */
@@ -84,7 +94,8 @@
     
     /* Projects Section */
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 100%;
     }
 }
 

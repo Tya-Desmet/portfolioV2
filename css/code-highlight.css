@@ -1,0 +1,216 @@
+/* ===================================================================
+   CODE SYNTAX HIGHLIGHTING - PRISM.JS CUSTOMIZATION
+   Story 4.3: Professional code display with copy button
+   =================================================================== */
+
+/* ===================================================================
+   CODE BLOCK CONTAINER
+   =================================================================== */
+
+pre[class*="language-"] {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.75rem; /* 12px - Encore plus compact */
+    line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+/* Code text color */
+code[class*="language-"] {
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    text-shadow: none;
+}
+
+/* Remove text-decoration on all code elements */
+pre[class*="language-"] *,
+code[class*="language-"] * {
+    text-decoration: none !important;
+    border: none !important;
+}
+
+/* ===================================================================
+   INLINE CODE
+   =================================================================== */
+
+/* Override article-detail.css inline code for consistency */
+.article-body code:not([class*="language-"]) {
+    background: #f1f5f9;
+    color: #c7254e;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9375rem;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+}
+
+/* ===================================================================
+   LINE NUMBERS PLUGIN - DÉSACTIVÉ
+   =================================================================== */
+
+/* Masquer les line numbers complètement */
+.line-numbers .line-numbers-rows {
+    display: none;
+}
+
+/* ===================================================================
+   TOOLBAR & COPY BUTTON PLUGIN
+   =================================================================== */
+
+/* Toolbar container */
+div.code-toolbar {
+    position: relative;
+}
+
+div.code-toolbar > .toolbar {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+div.code-toolbar:hover > .toolbar {
+    opacity: 1;
+}
+
+/* Copy button styling avec Purple Gradient */
+div.code-toolbar > .toolbar .toolbar-item button {
+    background: var(--gradient-primary);
+    background-size: 200% auto;
+    color: var(--color-background);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: var(--font-weight-semibold);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-default);
+}
+
+div.code-toolbar > .toolbar .toolbar-item button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background-position: right center;
+}
+
+div.code-toolbar > .toolbar .toolbar-item button:focus {
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
+}
+
+/* Success state after copying */
+div.code-toolbar > .toolbar .toolbar-item button[data-copy-state="copy-success"] {
+    background: #28a745;
+}
+
+/* ===================================================================
+   LANGUAGE BADGE (Optional enhancement)
+   =================================================================== */
+
+/* Masquer les badges de langage - trop intrusifs */
+pre[class*="language-"]:before {
+    display: none;
+}
+
+/* ===================================================================
+   HORIZONTAL SCROLL
+   =================================================================== */
+
+/* Custom scrollbar for code blocks */
+pre[class*="language-"]::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ===================================================================
+   RESPONSIVE MOBILE
+   =================================================================== */
+
+@media (max-width: 767px) {
+    pre[class*="language-"] {
+        font-size: 0.75rem; /* 12px sur mobile */
+        padding: 1rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+    }
+    
+    div.code-toolbar > .toolbar {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    div.code-toolbar > .toolbar .toolbar-item button {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    .line-numbers .line-numbers-rows {
+        margin-right: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* ===================================================================
+   PRINT STYLES
+   =================================================================== */
+
+@media print {
+    pre[class*="language-"] {
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #000;
+        border-radius: 8px;
+    }
+    
+    div.code-toolbar > .toolbar {
+        display: none;
+    }
+    
+    pre[class*="language-"]:before {
+        display: none;
+    }
+}
+
+/* ===================================================================
+   ACCESSIBILITY
+   =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    div.code-toolbar > .toolbar,
+    div.code-toolbar > .toolbar .toolbar-item button {
+        transition: none;
+    }
+    
+    div.code-toolbar > .toolbar .toolbar-item button:hover {
+        transform: none;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+pre[class*="language-"]:focus-visible {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
