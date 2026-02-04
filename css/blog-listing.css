@@ -10,7 +10,8 @@
 .blog-listing {
     padding: 6rem 0 4rem;
     min-height: calc(100vh - 80px - 60px);
-    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 50%, var(--color-surface) 100%);\n    animation: fadeInUp 0.8s ease-out;
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 50%, var(--color-surface) 100%);
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .blog-header {
@@ -193,6 +194,7 @@
     flex-grow: 1;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

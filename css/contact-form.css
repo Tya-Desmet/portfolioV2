@@ -217,7 +217,6 @@
 .btn-submit:hover:not(:disabled)::before {
     left: 100%;
 }
-}
 
 .btn-submit:active:not(:disabled) {
     transform: translateY(0);
