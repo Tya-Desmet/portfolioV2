@@ -1,0 +1,210 @@
+/* ===================================
+   Timeline CV - Section Parcours
+   =================================== */
+
+.timeline-section {
+    padding: var(--spacing-section) 0;
+    background: var(--color-background);
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-xl) 0 0 0;
+    position: relative;
+}
+
+/* Ligne verticale centrale */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-primary);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    padding-bottom: var(--spacing-xl);
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Marqueur circulaire */
+.timeline-marker {
+    position: absolute;
+    left: 11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    z-index: 1;
+}
+
+/* Contenu de l'entrée timeline */
+.timeline-content {
+    background: var(--color-surface);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.timeline-organization {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+}
+
+.timeline-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: var(--spacing-sm) 0;
+}
+
+/* Tags technologies */
+.timeline-tags {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-sm) 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.timeline-tags li {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-background);
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-border);
+}
+
+/* ===================================
+   Responsive Desktop (≥768px)
+   =================================== */
+
+@media (min-width: 768px) {
+    /* Ligne verticale centrée */
+    .timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Alternance gauche/droite */
+    .timeline-item {
+        width: 50%;
+        padding-left: 0;
+        padding-right: var(--spacing-lg);
+        clear: both;
+    }
+    
+    .timeline-item:nth-child(even) {
+        float: right;
+        padding-right: 0;
+        padding-left: var(--spacing-lg);
+    }
+    
+    /* Marqueur centré */
+    .timeline-marker {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Flèche pointant vers le centre (gauche) */
+    .timeline-content::before {
+        content: '';
+        position: absolute;
+        right: -10px;
+        top: 20px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent var(--color-primary);
+    }
+    
+    /* Flèche pointant vers le centre (droite) */
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -10px;
+        right: auto;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--color-primary) transparent transparent;
+    }
+}
+
+/* ===================================
+   Animation au scroll (optionnel)
+   =================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+    .timeline-item {
+        opacity: 0;
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .timeline-item:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    
+    .timeline-item:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .timeline-item:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Respect des préférences utilisateur (accessibilité) */
+@media (prefers-reduced-motion: reduce) {
+    .timeline-item {
+        opacity: 1;
+        animation: none;
+    }
+}
