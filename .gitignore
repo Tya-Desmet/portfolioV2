@@ -18,7 +18,6 @@ Thumbs.db
 
 # Node modules (future use)
 node_modules/
-package-lock.json
 
 # Environment variables (future use)
 .env
