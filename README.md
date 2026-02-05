@@ -13,7 +13,7 @@ Portfolio professionnel de Mystya, développeur full-stack junior.
 - Hero section avec présentation
 - Technologies & compétences (Frontend, Backend, Outils)
 - Portfolio de projets réalisés
-- Section contact avec liens sociaux
+- **Formulaire de contact** avec validation frontend et envoi via **Formspree**
 - Navigation responsive
 - SEO optimisé avec sitemap automatique
 - RSS feed pour articles de blog
@@ -25,6 +25,7 @@ Portfolio professionnel de Mystya, développeur full-stack junior.
 - **Framework:** Astro 5.17.1 (SSG)
 - **Frontend:** HTML5, CSS3, TypeScript, React
 - **Backend (en cours):** Node.js, Express, PostgreSQL, Java
+- **Formulaire:** Formspree (service d'envoi d'email pour sites statiques)
 - **Build:** Vite, esbuild, lightningcss
 - **CI/CD:** GitHub Actions, Lighthouse CI
 - **Hébergement:** Infomaniak Web Hosting (FTP)
@@ -63,7 +64,31 @@ npm run preview
 
 Ouvrir: http://localhost:4321
 
-## 🔄 CI/CD & Déploiement
+## � Configuration Formulaire de Contact
+
+Le formulaire de contact utilise **Formspree** pour l'envoi d'emails sur un site statique.
+
+### Configuration actuelle
+
+Le formulaire est configuré avec un endpoint Formspree: `https://formspree.io/f/xrelnyrq`
+
+Pour utiliser votre propre compte Formspree :
+
+1. Créer un compte gratuit sur [formspree.io](https://formspree.io)
+2. Créer un nouveau formulaire et obtenir l'endpoint
+3. Remplacer l'URL dans `public/js/contact-form.js` :
+   ```javascript
+   const response = await fetch('https://formspree.io/f/VOTRE_ID', {
+   ```
+
+### Alternatives à Formspree
+
+- **Netlify Forms** (si hébergé sur Netlify)
+- **Web3Forms** (gratuit, pas de compte requis)
+- **EmailJS** (envoi direct depuis le navigateur)
+- **Backend custom** avec Node.js + Nodemailer
+
+## �🔄 CI/CD & Déploiement
 
 Le déploiement est automatisé avec GitHub Actions :
 

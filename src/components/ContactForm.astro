@@ -86,15 +86,23 @@
       </div>
       
       <!-- Submit Button -->
-      <button type="submit" class="btn-submit">
+      <button type="submit" id="submitBtn" class="btn-submit">
         <span class="btn-text">Envoyer le message</span>
         <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
         </svg>
       </button>
       
+      <!-- Error Message (hidden by default) -->
+      <div id="errorMessage" class="error-message-box" role="alert" aria-live="assertive" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <p>Une erreur est survenue</p>
+      </div>
+      
       <!-- Success Message (hidden by default) -->
-      <div id="success-message" class="success-message" role="status" aria-live="polite" style="display: none;">
+      <div id="successMessage" class="success-message" role="status" aria-live="polite" style="display: none;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
         </svg>
@@ -248,6 +256,30 @@
     transform: none;
   }
 
+  .btn-submit.loading {
+    position: relative;
+    pointer-events: none;
+  }
+
+  .btn-submit.loading .btn-text {
+    opacity: 0;
+  }
+
+  .btn-submit.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
   .btn-icon {
     width: 20px;
     height: 20px;
@@ -271,6 +303,30 @@
     width: 24px;
     height: 24px;
     flex-shrink: 0;
+  }
+
+  /* Error Message Box */
+  .error-message-box {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    color: #ef4444;
+    font-size: var(--font-size-body);
+  }
+
+  .error-message-box svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .error-message-box p {
+    margin: 0;
   }
 
   /* Animation on scroll */
