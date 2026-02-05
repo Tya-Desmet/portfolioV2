@@ -1,0 +1,455 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Technologies from '../components/Technologies.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Timeline from '../components/Timeline.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+// Structured Data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mystya",
+  "jobTitle": "Développeuse Full-Stack Junior",
+  "url": "https://tyadesmet.dev",
+  "image": "https://tyadesmet.dev/images/mystya-photo.png",
+  "email": "tya.desmet@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "France",
+    "addressCountry": "FR"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/tya-desmet",
+    "https://github.com/Tya-Desmet"
+  ],
+  "knowsAbout": [
+    "JavaScript",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Express",
+    "Git",
+    "Java"
+  ],
+  "description": "Développeuse full-stack junior passionnée, spécialisée en JavaScript, React, Node.js et PostgreSQL. Disponible pour missions freelance."
+};
+
+// Hero Data
+const heroData = {
+  name: "Mystya",
+  role: "Développeuse Full-Stack Junior",
+  tagline: "Passionnée par la création d'applications web modernes et performantes",
+  photo: "/images/mystya-photo.png",
+  stack: ["JavaScript", "React", "Node.js", "PostgreSQL"]
+};
+
+// Projects Data
+const projects = [
+  {
+    title: "Portfolio Personnel",
+    description: "Site portfolio professionnel mettant en avant mes compétences et projets. Design responsive avec focus sur l'accessibilité et les performances (Lighthouse 95+).",
+    image: "/images/projects/project-1-portfolio.svg",
+    stack: ["HTML5", "CSS3", "JavaScript", "Astro"],
+    githubLink: "https://github.com/Tya-Desmet/portfolioV2",
+    demoLink: "https://tyadesmet.dev"
+  },
+  {
+    title: "Application Todo",
+    description: "Application de gestion de tâches avec authentification, filtrage et persistence des données. Interface intuitive avec drag & drop.",
+    image: "/images/projects/project-2-todo.svg",
+    stack: ["React", "Node.js", "PostgreSQL", "Express"],
+    githubLink: "https://github.com/Tya-Desmet",
+    demoLink: undefined
+  },
+  {
+    title: "API REST Blog",
+    description: "API RESTful complète pour un système de blog avec authentification JWT, CRUD articles, commentaires et upload d'images.",
+    image: "/images/projects/project-3-api.svg",
+    stack: ["Node.js", "Express", "PostgreSQL", "JWT"],
+    githubLink: "https://github.com/Tya-Desmet",
+    demoLink: undefined
+  }
+];
+
+// Timeline Data
+const timelineItems = [
+  {
+    title: "Alternance Développeur Web Front-End",
+    organization: "IFAPME Tournai",
+    date: "Septembre 2024 - Présent",
+    datetime: "2024-09",
+    description: "Formation en alternance spécialisée en développement web front-end. Apprentissage des technologies modernes (HTML, CSS, JavaScript, React) et des bonnes pratiques du développement web.",
+    tags: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    title: "CQ7 Gestion de Base",
+    organization: "Collège De La Lys, Comines",
+    date: "Septembre 2022 - Juin 2023",
+    datetime: "2022-09",
+    description: "Formation en gestion d'entreprise couvrant les aspects administratifs, comptables et managériaux essentiels à la création et gestion d'une activité professionnelle.",
+    tags: ["Gestion", "Comptabilité", "Administration"]
+  },
+  {
+    title: "CQ6 Techniciens en Informatique",
+    organization: "Collège De La Lys, Comines",
+    date: "Septembre 2021 - Juin 2022",
+    datetime: "2021-09",
+    description: "Formation technique en informatique couvrant la maintenance hardware, les réseaux, les systèmes d'exploitation et les bases de la programmation.",
+    tags: ["Hardware", "Réseaux", "Systèmes", "Programmation"]
+  },
+  {
+    title: "Équipier Polyvalent",
+    organization: "Action, Roubaix (CDI)",
+    date: "Mars 2021 - Juin 2021",
+    datetime: "2021-03",
+    description: "Maintien d'un établissement propre et agréable, encaissement des produits, et réponse aux besoins des clients. Développement de compétences en service client et travail d'équipe.",
+    tags: ["Service Client", "Travail d'équipe", "Gestion"]
+  },
+  {
+    title: "CESS (Certificat d'Enseignement Secondaire Supérieur)",
+    organization: "Collège De La Lys, Comines",
+    date: "Septembre 2021 - Juin 2022",
+    datetime: "2021-09",
+    description: "Obtention du diplôme de fin d'études secondaires avec orientation technique en informatique."
+  }
+];
+
+// Blog Articles - Latest 3 articles
+const latestArticles = [
+  {
+    slug: 'article-1-introduction-astro',
+    title: 'Introduction à Astro SSG',
+    excerpt: 'Découvrez Astro, le framework moderne pour sites statiques performants qui permet de créer des sites ultra-rapides avec un minimum de JavaScript.',
+    publishedDate: new Date('2026-02-01'),
+    readingTime: 5,
+    tags: ['Astro', 'SSG', 'Performance']
+  },
+  {
+    slug: 'article-2-migration-vanilla-astro',
+    title: 'Migration de HTML vanilla vers Astro',
+    excerpt: 'Guide complet pour migrer un site statique HTML/CSS/JS vers Astro. Découvrez les avantages et le processus de migration étape par étape.',
+    publishedDate: new Date('2026-02-03'),
+    readingTime: 8,
+    tags: ['Astro', 'Migration', 'HTML']
+  },
+  {
+    slug: 'article-3-components-astro',
+    title: 'Créer des composants réutilisables avec Astro',
+    excerpt: 'Apprenez à structurer vos composants Astro efficacement. Best practices, patterns de composition et organisation de projet.',
+    publishedDate: new Date('2026-02-05'),
+    readingTime: 6,
+    tags: ['Astro', 'Components', 'Architecture']
+  }
+];
+---
+
+<BaseLayout
+  title="Mystya - Développeuse Full-Stack Junior | JavaScript React Node.js"
+  description="Portfolio professionnel de Mystya, développeuse full-stack junior passionnée. Spécialisée en JavaScript, React, Node.js et PostgreSQL. Disponible pour missions freelance."
+  structuredData={structuredData}
+>
+  <Hero {...heroData} />
+    
+    <Technologies />
+    
+    <!-- Section Projets Réalisés -->
+    <section id="projets" class="projects animate-on-scroll">
+      <div class="container">
+        <h2 class="section-title">Projets Réalisés</h2>
+        <p class="section-subtitle">Découvrez mes réalisations récentes</p>
+        
+        <div class="projects-grid">
+          {projects.map(project => (
+            <ProjectCard {...project} />
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section Blog Récent -->
+    <section id="blog" class="blog-section animate-on-scroll">
+      <div class="container">
+        <h2 class="section-title">Articles Récents</h2>
+        <p class="section-subtitle">Découvrez mes derniers articles techniques</p>
+        
+        <div class="articles-grid">
+          {latestArticles.map(article => (
+            <article class="article-preview">
+              <time 
+                datetime={article.publishedDate.toISOString()} 
+                class="article-date"
+              >
+                {article.publishedDate.toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+              
+              <h3>
+                <a href={`/blog/${article.slug}`} class="article-link">
+                  {article.title}
+                </a>
+              </h3>
+              
+              <p class="article-excerpt">
+                {article.excerpt}
+              </p>
+              
+              <div class="article-footer">
+                <span class="reading-time">
+                  ⏱️ {article.readingTime} min
+                </span>
+                <a href={`/blog/${article.slug}`} class="read-more">
+                  Lire →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+        
+        <div class="blog-cta">
+          <a href="/blog" class="btn-primary">
+            Voir tous les articles
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <Timeline items={timelineItems} />
+    
+    <ContactForm />
+</BaseLayout>
+
+<style>
+  /* Section Styles */
+  .projects {
+    padding: var(--spacing-2xl) var(--spacing-sm);
+    background: var(--color-background);
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .projects {
+      padding: var(--spacing-2xl) var(--spacing-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .projects {
+      padding: var(--spacing-3xl) var(--spacing-md);
+    }
+  }
+
+  .projects .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: var(--font-size-h3);
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Animation on scroll */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Blog Section Styles */
+  .blog-section {
+    padding: var(--spacing-2xl) var(--spacing-sm);
+    background: var(--color-surface);
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .blog-section {
+      padding: var(--spacing-2xl) var(--spacing-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-section {
+      padding: var(--spacing-3xl) var(--spacing-md);
+    }
+  }
+
+  .blog-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  @media (min-width: 768px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .articles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .article-preview {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-preview:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .article-date {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 0.75rem;
+  }
+
+  .article-preview h3 {
+    font-size: 1.375rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .article-link {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .article-link:hover {
+    color: var(--color-primary);
+  }
+
+  .article-excerpt {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: auto;
+    flex-grow: 1;
+  }
+
+  .article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .reading-time {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+  }
+
+  .read-more {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .read-more:hover {
+    gap: 0.5rem;
+  }
+
+  .blog-cta {
+    text-align: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  }
+</style>

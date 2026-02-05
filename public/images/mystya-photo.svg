@@ -1,0 +1,15 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond bleu -->
+  <circle cx="150" cy="150" r="150" fill="#2563eb"/>
+  
+  <!-- Avatar silhouette -->
+  <g fill="#ffffff" opacity="0.9">
+    <!-- Tête -->
+    <circle cx="150" cy="110" r="45"/>
+    <!-- Corps -->
+    <ellipse cx="150" cy="210" rx="80" ry="70"/>
+  </g>
+  
+  <!-- Bordure décorative -->
+  <circle cx="150" cy="150" r="145" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+</svg>

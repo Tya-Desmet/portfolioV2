@@ -1,0 +1,40 @@
+{
+  "name": "projetperso",
+  "version": "1.0.0",
+  "description": "Portfolio professionnel de Mystya, développeur full-stack junior.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tya-Desmet/portfolioV2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Tya-Desmet/portfolioV2/issues"
+  },
+  "homepage": "https://github.com/Tya-Desmet/portfolioV2#readme",
+  "dependencies": {
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@lhci/cli": "^0.15.1",
+    "lightningcss": "^1.31.1",
+    "rollup-plugin-visualizer": "^6.0.5",
+    "typescript": "^5.9.3"
+  }
+}

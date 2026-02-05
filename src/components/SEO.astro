@@ -1,0 +1,59 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  url?: string;
+  author?: string;
+  structuredData?: object;
+}
+
+const {
+  title,
+  description,
+  image = '/images/mystya-photo.png',
+  url,
+  author = 'Mystya - Tya Desmet, Développeur Full-Stack',
+  structuredData
+} = Astro.props;
+
+const canonicalURL = url || new URL(Astro.url.pathname, Astro.site).href;
+const socialImage = new URL(image, Astro.site).href;
+---
+
+<!-- Primary SEO Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Preload hero image for LCP optimization -->
+<link rel="preload" as="image" href={image} />
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
+
+<!-- Theme Color (mobile browsers) -->
+<meta name="theme-color" content="#7c3aed" />
+
+<!-- Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImage} />
+<meta property="og:locale" content="fr_FR" />
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImage} />
+
+<!-- JSON-LD Structured Data -->
+{structuredData && (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+)}

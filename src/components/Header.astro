@@ -1,0 +1,446 @@
+---
+// Header.astro - Navigation component with mobile burger menu
+---
+
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<nav class="nav" aria-label="Navigation principale">
+    <div class="nav-container">
+        <!-- Logo/Brand -->
+        <a href="/" class="nav-brand">Mystya</a>
+        
+        <!-- Burger Menu Button (mobile only) -->
+        <button class="nav-toggle" 
+                aria-label="Ouvrir le menu de navigation" 
+                aria-expanded="false"
+                aria-controls="nav-menu">
+            <span class="burger-icon" aria-hidden="true"></span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="/" class="nav-link active">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a href="/#technologies" class="nav-link">Technologies</a>
+            </li>
+            <li class="nav-item">
+                <a href="/#projets" class="nav-link">Projets</a>
+            </li>
+            <li class="nav-item">
+                <a href="/#parcours" class="nav-link">Parcours</a>
+            </li>
+            <li class="nav-item">
+                <a href="/#contact" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a href="/blog" class="nav-link">Blog</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+// Navigation Active Link Highlighting & Mobile Menu Toggle
+(function() {
+    'use strict';
+    
+    // Elements
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id], header[id]');
+    
+    // Focus trap elements for mobile menu
+    let focusableElements: Element[] = [];
+    let firstFocusableElement: Element | null = null;
+    let lastFocusableElement: Element | null = null;
+    
+    // Update focusable elements when menu opens
+    function updateFocusableElements() {
+        if (!navMenu || !navMenu.classList.contains('open')) return;
+        
+        focusableElements = Array.from(navMenu.querySelectorAll(
+            'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ));
+        firstFocusableElement = focusableElements[0] || null;
+        lastFocusableElement = focusableElements[focusableElements.length - 1] || null;
+    }
+    
+    // Focus trap handler (WCAG 2.4.3 compliance)
+    function handleFocusTrap(e: KeyboardEvent) {
+        if (!navMenu || !navMenu.classList.contains('open')) return;
+        
+        const isTabPressed = e.key === 'Tab';
+        if (!isTabPressed) return;
+        
+        // Shift + Tab (backward)
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusableElement && firstFocusableElement) {
+                if (lastFocusableElement instanceof HTMLElement) {
+                    lastFocusableElement.focus();
+                }
+                e.preventDefault();
+            }
+        } 
+        // Tab (forward)
+        else {
+            if (document.activeElement === lastFocusableElement && lastFocusableElement) {
+                if (firstFocusableElement instanceof HTMLElement) {
+                    firstFocusableElement.focus();
+                }
+                e.preventDefault();
+            }
+        }
+    }
+    
+    // Mobile Menu Toggle
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle menu
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('open');
+            
+            // Update ARIA
+            navToggle.setAttribute('aria-expanded', String(!isExpanded));
+            navToggle.setAttribute('aria-label', 
+                isExpanded ? 'Ouvrir le menu de navigation' : 'Fermer le menu de navigation'
+            );
+            
+            // Setup focus trap when opening
+            if (!isExpanded) {
+                updateFocusableElements();
+                if (firstFocusableElement && firstFocusableElement instanceof HTMLElement) {
+                    setTimeout(() => (firstFocusableElement as HTMLElement).focus(), 100);
+                }
+                document.addEventListener('keydown', handleFocusTrap);
+            } else {
+                document.removeEventListener('keydown', handleFocusTrap);
+            }
+        });
+    }
+    
+    // Close mobile menu when clicking nav link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth < 768 && navMenu && navMenu.classList.contains('open') && navToggle) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.setAttribute('aria-label', 'Ouvrir le menu de navigation');
+                document.removeEventListener('keydown', handleFocusTrap);
+            }
+        });
+    });
+    
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('open') && navToggle instanceof HTMLElement) {
+            navToggle.click();
+        }
+    });
+    
+    // Active Link Highlighting on Scroll
+    function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            if (!(section instanceof HTMLElement)) return;
+            const sectionTop = section.offsetTop;
+            
+            if (window.pageYOffset >= sectionTop - 100) {
+                currentSection = section.getAttribute('id') || '';
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // Throttle scroll event for performance
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateActiveLink();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+</script>
+
+<style>
+/* Smooth Scroll Behavior */
+:global(html) {
+    scroll-behavior: smooth;
+}
+
+/* Adjust scroll position for sticky nav */
+:global(section[id]),
+:global(header[id]) {
+    scroll-margin-top: 80px;
+}
+
+/* Skip Link (accessibility) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    z-index: 1001;
+    font-weight: var(--font-weight-medium);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Navigation Sticky Header with Glassmorphism */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-default);
+}
+
+.nav:hover {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand/Logo with Purple Gradient */
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    transition: all var(--transition-default);
+    position: relative;
+}
+
+.nav-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-default);
+}
+
+.nav-brand:hover::after,
+.nav-brand:focus-visible::after {
+    width: 100%;
+}
+
+.nav-brand:focus-visible {
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+/* Navigation Menu (mobile hidden by default) */
+.nav-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+    .nav-container {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .nav-brand {
+        font-size: 1.25rem;
+    }
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all var(--transition-default);
+    border-bottom: 3px solid transparent;
+    position: relative;
+    border-radius: var(--radius-sm);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-default);
+    border-radius: var(--radius-full);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--color-primary);
+    background: var(--color-surface);
+}
+
+.nav-link:hover::before,
+.nav-link:focus-visible::before {
+    width: 80%;
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    background: var(--color-surface-alt);
+}
+
+.nav-link.active::before {
+    width: 80%;
+}
+
+.nav-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Burger Menu Button (mobile only) */
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+}
+
+.nav-toggle:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.burger-icon {
+    position: relative;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: all var(--transition-default);
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: all var(--transition-default);
+}
+
+.burger-icon::before {
+    top: -10px;
+}
+
+.burger-icon::after {
+    top: 10px;
+}
+
+/* Burger Icon Animation (when menu open) */
+.nav-toggle.active .burger-icon {
+    background-color: transparent;
+}
+
+.nav-toggle.active .burger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-toggle.active .burger-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile Menu Open State */
+.nav-menu.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-md) 0;
+}
+
+/* Tablet and Desktop (≥768px) */
+@media (min-width: 768px) {
+    /* Hide burger menu button */
+    .nav-toggle {
+        display: none;
+    }
+    
+    /* Show navigation menu horizontally */
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
+    
+    .nav-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+}
+
+/* Desktop larger spacing (≥1024px) */
+@media (min-width: 1024px) {
+    .nav-menu {
+        gap: var(--spacing-lg);
+    }
+}
+</style>

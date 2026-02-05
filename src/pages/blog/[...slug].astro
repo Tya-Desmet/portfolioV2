@@ -1,0 +1,202 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+// Generate static paths for 3 hardcoded articles
+export function getStaticPaths() {
+  return [
+    {
+      params: { slug: 'article-1-introduction-astro' },
+      props: {
+        title: 'Introduction à Astro SSG',
+        description: 'Découvrez Astro, le framework moderne pour sites statiques performants',
+        excerpt: 'Découvrez Astro, le framework moderne pour sites statiques performants qui permet de créer des sites ultra-rapides avec un minimum de JavaScript.',
+        content: `
+          <h2>Qu'est-ce qu'Astro ?</h2>
+          <p>Astro est un framework moderne de construction de sites web qui se concentre sur la performance. Il adopte une approche unique appelée "Island Architecture" qui permet de créer des sites ultra-rapides en envoyant moins de JavaScript au navigateur.</p>
+          
+          <h3>Les avantages principaux d'Astro</h3>
+          <ul>
+            <li><strong>Performance exceptionnelle</strong> : Par défaut, Astro génère des pages sans JavaScript, ce qui les rend extrêmement rapides</li>
+            <li><strong>Flexibilité des frameworks</strong> : Vous pouvez utiliser React, Vue, Svelte, ou tout autre framework dans le même projet</li>
+            <li><strong>Syntaxe intuitive</strong> : Les composants Astro utilisent une syntaxe familière qui ressemble à JSX</li>
+            <li><strong>Optimisations automatiques</strong> : Images optimisées, CSS scopé, et bien plus encore</li>
+          </ul>
+          
+          <h2>Pourquoi choisir Astro pour votre prochain projet ?</h2>
+          <p>Si vous construisez un site orienté contenu (blog, portfolio, site marketing), Astro est un excellent choix. Il combine la simplicité du développement avec des performances exceptionnelles en production.</p>
+          
+          <h3>Cas d'usage idéaux</h3>
+          <p>Astro brille particulièrement pour :</p>
+          <ul>
+            <li>Sites portfolio et CV en ligne</li>
+            <li>Blogs techniques et documentation</li>
+            <li>Sites marketing et landing pages</li>
+            <li>Sites e-commerce statiques</li>
+          </ul>
+          
+          <h2>Conclusion</h2>
+          <p>Astro représente une nouvelle génération de frameworks web qui privilégient la performance et l'expérience utilisateur. Si vous cherchez à créer un site rapide et moderne, c'est définitivement un outil à considérer.</p>
+        `,
+        publishedDate: new Date('2026-02-01'),
+        readingTime: 5,
+        image: '/images/blog/astro-intro.jpg'
+      }
+    },
+    {
+      params: { slug: 'article-2-migration-vanilla-astro' },
+      props: {
+        title: 'Migration de HTML vanilla vers Astro',
+        description: 'Guide complet pour migrer un site statique vers Astro',
+        excerpt: 'Guide complet pour migrer un site statique HTML/CSS/JS vers Astro. Découvrez les avantages et le processus de migration étape par étape.',
+        content: `
+          <h2>Pourquoi migrer vers Astro ?</h2>
+          <p>Vous avez un site HTML/CSS/JS qui fonctionne bien, mais vous souhaitez bénéficier des avantages d'un framework moderne sans tout réécrire ? Astro est la solution parfaite pour cette transition en douceur.</p>
+          
+          <h3>Les avantages de la migration</h3>
+          <ul>
+            <li><strong>Composants réutilisables</strong> : Transformez vos sections HTML en composants modulaires</li>
+            <li><strong>Meilleure organisation</strong> : Structure de projet claire et maintenable</li>
+            <li><strong>Performance améliorée</strong> : Optimisations automatiques pour des temps de chargement réduits</li>
+            <li><strong>SEO optimisé</strong> : Meta tags, sitemaps et structured data simplifiés</li>
+            <li><strong>Build moderne</strong> : TypeScript, Sass, PostCSS supportés nativement</li>
+          </ul>
+          
+          <h2>Processus de migration étape par étape</h2>
+          
+          <h3>Étape 1: Initialiser le projet Astro</h3>
+          <p>Commencez par créer un nouveau projet Astro à côté de votre site existant :</p>
+          <pre><code>npm create astro@latest
+cd mon-projet
+npm install</code></pre>
+          
+          <h3>Étape 2: Convertir les sections en composants</h3>
+          <p>Identifiez les sections réutilisables (header, footer, navigation) et transformez-les en composants Astro. C'est une étape progressive - vous pouvez commencer par les éléments les plus simples.</p>
+          
+          <h3>Étape 3: Créer les layouts</h3>
+          <p>Créez un BaseLayout qui contient la structure HTML commune (head, body, scripts globaux). Cela élimine la duplication de code entre vos pages.</p>
+          
+          <h3>Étape 4: Migrer les pages</h3>
+          <p>Convertissez vos fichiers HTML en pages Astro (.astro). Astro utilise le routing basé sur les fichiers, donc la structure de votre dossier <code>src/pages/</code> définit vos URLs.</p>
+          
+          <h2>Pièges courants à éviter</h2>
+          <ul>
+            <li>Oublier de convertir les chemins absolus en chemins relatifs</li>
+            <li>Ne pas tester la navigation entre toutes les pages</li>
+            <li>Ignorer les meta tags SEO lors de la migration</li>
+            <li>Ne pas vérifier les performances avec Lighthouse après migration</li>
+          </ul>
+          
+          <h2>Conclusion</h2>
+          <p>La migration vers Astro est un investissement qui en vaut la peine. Vous gagnez en maintenabilité, en performance, et en productivité pour les futures évolutions de votre site.</p>
+        `,
+        publishedDate: new Date('2026-02-03'),
+        readingTime: 8,
+        image: '/images/blog/astro-migration.jpg'
+      }
+    },
+    {
+      params: { slug: 'article-3-components-astro' },
+      props: {
+        title: 'Créer des composants réutilisables avec Astro',
+        description: 'Apprenez à structurer vos composants Astro efficacement',
+        excerpt: 'Apprenez à structurer vos composants Astro efficacement. Best practices, patterns de composition et organisation de projet.',
+        content: `
+          <h2>Architecture des composants Astro</h2>
+          <p>Les composants Astro sont le cœur de votre application. Bien les structurer dès le départ vous fera gagner beaucoup de temps et facilitera la maintenance de votre projet.</p>
+          
+          <h3>Anatomie d'un composant Astro</h3>
+          <p>Un composant Astro typique se compose de trois sections :</p>
+          <pre><code>---
+// Section frontmatter (JavaScript/TypeScript)
+import OtherComponent from './OtherComponent.astro';
+const myData = 'Hello';
+---
+
+&lt;!-- Template HTML --&gt;
+&lt;div&gt;{myData}&lt;/div&gt;
+
+&lt;style&gt;
+/* Styles scopés au composant */
+div { color: blue; }
+&lt;/style&gt;</code></pre>
+          
+          <h2>Best practices pour les composants</h2>
+          
+          <h3>1. Typage avec TypeScript</h3>
+          <p>Utilisez toujours des interfaces TypeScript pour vos props. Cela améliore l'expérience développeur et prévient les bugs :</p>
+          <pre><code>interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+}</code></pre>
+          
+          <h3>2. Composition plutôt qu'héritage</h3>
+          <p>Favorisez la composition de composants plutôt que l'héritage complexe. Utilisez le slot system d'Astro pour créer des composants flexibles.</p>
+          
+          <h3>3. Organisation des fichiers</h3>
+          <p>Structurez vos composants par fonctionnalité ou par type :</p>
+          <pre><code>src/
+├── components/
+│   ├── layout/
+│   │   ├── Header.astro
+│   │   └── Footer.astro
+│   ├── ui/
+│   │   ├── Button.astro
+│   │   └── Card.astro
+│   └── features/
+│       ├── BlogCard.astro
+│       └── ProjectCard.astro</code></pre>
+          
+          <h2>Patterns de composition avancés</h2>
+          
+          <h3>Slots nommés</h3>
+          <p>Utilisez les slots nommés pour créer des composants avec plusieurs zones de contenu personnalisables :</p>
+          <pre><code>&lt;Card&gt;
+  &lt;Fragment slot="header"&gt;
+    &lt;h2&gt;Titre&lt;/h2&gt;
+  &lt;/Fragment&gt;
+  &lt;p&gt;Contenu principal&lt;/p&gt;
+  &lt;Fragment slot="footer"&gt;
+    &lt;button&gt;Action&lt;/button&gt;
+  &lt;/Fragment&gt;
+&lt;/Card&gt;</code></pre>
+          
+          <h3>Props avec valeurs par défaut</h3>
+          <p>Définissez toujours des valeurs par défaut sensées pour vos props optionnelles :</p>
+          <pre><code>const { 
+  variant = 'primary',
+  size = 'medium',
+  disabled = false 
+} = Astro.props;</code></pre>
+          
+          <h2>Performance et optimisation</h2>
+          <ul>
+            <li><strong>Client directives</strong> : Utilisez <code>client:load</code>, <code>client:visible</code> judicieusement</li>
+            <li><strong>Styles scopés</strong> : Profitez du CSS scopé automatique d'Astro</li>
+            <li><strong>Images optimisées</strong> : Utilisez le composant Image d'Astro pour l'optimisation automatique</li>
+          </ul>
+          
+          <h2>Conclusion</h2>
+          <p>Maîtriser l'architecture des composants Astro est essentiel pour construire des applications maintenables et performantes. Suivez ces best practices et votre code restera propre même quand votre projet grandit.</p>
+        `,
+        publishedDate: new Date('2026-02-05'),
+        readingTime: 6,
+        image: '/images/blog/astro-components.jpg'
+      }
+    }
+  ];
+}
+
+const { title, description, excerpt, content, publishedDate, readingTime, image } = Astro.props;
+---
+
+<BlogPostLayout
+  title={title}
+  description={description}
+  excerpt={excerpt}
+  publishedDate={publishedDate}
+  readingTime={readingTime}
+  image={image}
+>
+  <div set:html={content} />
+</BlogPostLayout>
