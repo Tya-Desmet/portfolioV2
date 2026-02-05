@@ -79,49 +79,109 @@
           required
           aria-required="true"
           aria-describedby="message-error"
-          placeholder="Votre message ici..."
+          placeholder="Votre message (minimum 10 caractères)..."
           rows="6"
         ></textarea>
         <span id="message-error" class="error-message" role="alert"></span>
       </div>
       
-      <!-- Submit Button -->
-      <button type="submit" id="submitBtn" class="btn-submit">
-        <span class="btn-text">Envoyer le message</span>
-        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-        </svg>
-      </button>
+      <!-- Honeypot field (protection anti-spam - caché pour utilisateurs humains) -->
+      <input
+        type="text"
+        name="website"
+        id="website"
+        class="honeypot"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+      >
       
-      <!-- Error Message (hidden by default) -->
-      <div id="errorMessage" class="error-message-box" role="alert" aria-live="assertive" style="display: none;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-        </svg>
-        <p>Une erreur est survenue</p>
+      <!-- Bouton submit -->
+      <div class="form-actions">
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Envoyer le message</span>
+          <span class="btn-loading" style="display: none;">
+            <svg class="spinner" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" opacity="0.25"></circle>
+              <path d="M12 2 A 10 10 0 0 1 22 12" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"></path>
+            </svg>
+            Envoi en cours...
+          </span>
+        </button>
       </div>
       
-      <!-- Success Message (hidden by default) -->
-      <div id="successMessage" class="success-message" role="status" aria-live="polite" style="display: none;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <!-- Message de succès (caché par défaut) -->
+      <div id="successMessage" class="success-message" role="alert" style="display: none;">
+        <svg class="success-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
           <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
         </svg>
-        <span>Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.</span>
+        <p>✅ Message envoyé avec succès ! Je vous répondrai sous 48h.</p>
+      </div>
+      
+      <!-- Message d'erreur (caché par défaut) -->
+      <div id="errorMessage" class="error-message-banner" role="alert" style="display: none;">
+        <svg class="error-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <p>Erreur lors de l'envoi</p>
       </div>
     </form>
+    
+    <!-- Informations de contact alternatives -->
+    <div class="contact-info">
+      <div class="contact-item">
+        <svg class="contact-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        <a href="#" class="contact-link" id="emailLink" data-user="tya.desmet" data-domain="gmail.com" aria-label="Envoyer un email">Contact par email</a>
+      </div>
+      
+      <div class="contact-item">
+        <svg class="contact-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <span>Comines, France</span>
+      </div>
+    </div>
+    
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/tya-desmet" 
+         class="social-link social-link--linkedin" 
+         target="_blank" 
+         rel="me noopener noreferrer"
+         aria-label="Profil LinkedIn de Mystya">
+        <svg class="social-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+        </svg>
+        LinkedIn
+      </a>
+      
+      <a href="https://github.com/Tya-Desmet" 
+         class="social-link social-link--github" 
+         target="_blank" 
+         rel="me noopener noreferrer"
+         aria-label="Profil GitHub de Mystya">
+        <svg class="social-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
   /* Contact Section */
   .contact-section {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: var(--spacing-3xl) 0;
     background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
   }
 
-  .contact-section .container {
-    max-width: 800px;
+  .container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--spacing-md);
   }
 
   .section-title {
@@ -136,20 +196,37 @@
   }
 
   .section-subtitle {
-    font-size: var(--font-size-body);
-    color: var(--color-text-light);
     text-align: center;
+    color: var(--color-text-light);
+    font-size: 1.125rem;
     margin-bottom: var(--spacing-2xl);
-    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
   }
 
   /* Form Styles */
   .contact-form {
-    background: var(--color-surface-light);
+    max-width: 800px;
+    margin: 0 auto 3rem;
     padding: var(--spacing-xl);
+    background: var(--color-background);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(124, 58, 237, 0.1);
     box-shadow: var(--shadow-lg);
+    border: 2px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
   }
 
   @media (min-width: 768px) {
@@ -161,8 +238,8 @@
   .form-row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   @media (min-width: 768px) {
@@ -172,6 +249,9 @@
   }
 
   .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-bottom: var(--spacing-md);
   }
 
@@ -189,7 +269,7 @@
 
   .form-input {
     width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 1rem 1.25rem;
     font-size: var(--font-size-body);
     font-family: inherit;
     color: var(--color-text);
@@ -197,21 +277,49 @@
     border: 2px solid var(--color-border);
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
+    outline: none;
+  }
+
+  .form-input:hover {
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-md);
   }
 
   .form-input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15), var(--shadow-md);
   }
 
-  .form-input.error {
+  .form-input.error,
+  .form-input.invalid {
     border-color: #ef4444;
+  }
+
+  .form-input.valid {
+    border-color: #10b981;
   }
 
   .form-textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 180px;
+    max-height: 500px;
+    line-height: 1.7;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+  }
+
+  /* Honeypot */
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
   }
 
   .error-message {
@@ -220,113 +328,251 @@
     color: #ef4444;
     margin-top: var(--spacing-xs);
     min-height: 20px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: all 0.2s ease;
+  }
+
+  .error-message.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* Submit Button */
+  .form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+  }
+
   .btn-submit {
-    width: 100%;
+    padding: 1.125rem 3rem;
+    background: var(--gradient-primary);
+    background-size: 200% auto;
+    color: var(--color-background);
+    border: none;
+    border-radius: var(--radius-xl);
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    transition: all var(--transition-default);
+    box-shadow: var(--shadow-lg);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-size: var(--font-size-body);
-    font-weight: var(--font-weight-semibold);
-    color: white;
-    background: var(--gradient-primary);
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    box-shadow: var(--shadow-md);
+    min-width: 240px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
   }
 
-  .btn-submit:hover {
-    transform: translateY(-2px);
+  .btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-submit:hover:not(:disabled) {
+    transform: translateY(-4px) scale(1.02);
     box-shadow: var(--shadow-purple-glow);
+    background-position: right center;
   }
 
-  .btn-submit:active {
+  .btn-submit:hover:not(:disabled)::before {
+    left: 100%;
+  }
+
+  .btn-submit:active:not(:disabled) {
     transform: translateY(0);
   }
 
   .btn-submit:disabled {
-    opacity: 0.6;
+    background: #ccc;
     cursor: not-allowed;
-    transform: none;
-  }
-
-  .btn-submit.loading {
-    position: relative;
-    pointer-events: none;
+    box-shadow: none;
+    opacity: 0.6;
   }
 
   .btn-submit.loading .btn-text {
-    opacity: 0;
+    display: none;
   }
 
-  .btn-submit.loading::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+  .btn-submit.loading .btn-loading {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   @keyframes spin {
     to { transform: rotate(360deg); }
   }
 
-  .btn-icon {
+  .spinner {
     width: 20px;
     height: 20px;
+    animation: spin 1s linear infinite;
   }
 
   /* Success Message */
   .success-message {
+    background: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    margin-top: 1.5rem;
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md);
-    margin-top: var(--spacing-md);
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    border-radius: var(--radius-md);
-    color: #10b981;
-    font-size: var(--font-size-body);
+    gap: 1rem;
+    animation: slideInDown 0.4s ease;
   }
 
-  .success-message svg {
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .success-icon {
     width: 24px;
     height: 24px;
+    color: #28a745;
     flex-shrink: 0;
   }
 
-  /* Error Message Box */
-  .error-message-box {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md);
-    margin-top: var(--spacing-md);
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    border-radius: var(--radius-md);
-    color: #ef4444;
-    font-size: var(--font-size-body);
-  }
-
-  .error-message-box svg {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-  }
-
-  .error-message-box p {
+  .success-message p {
     margin: 0;
+    font-weight: 500;
+  }
+
+  /* Error Message Banner */
+  .error-message-banner {
+    background: #f8d7da;
+    border: 2px solid #dc3545;
+    color: #721c24;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideInDown 0.4s ease;
+  }
+
+  .error-icon {
+    width: 24px;
+    height: 24px;
+    color: #dc3545;
+    flex-shrink: 0;
+  }
+
+  .error-message-banner p {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* Contact Info */
+  .contact-info {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-info {
+      flex-direction: row;
+      justify-content: center;
+      gap: 3rem;
+    }
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text-light);
+    font-size: 1rem;
+  }
+
+  .contact-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .contact-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  /* Social Links */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--color-border);
+  }
+
+  .social-link:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .social-link--linkedin:hover {
+    background: #0077b5;
+    color: #fff;
+    border-color: #0077b5;
+  }
+
+  .social-link--github:hover {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
   }
 
   /* Animation on scroll */
@@ -339,5 +585,64 @@
   .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .contact-section {
+      padding: 3rem 0;
+    }
+
+    .contact-form {
+      padding: 1.5rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+
+    .form-input {
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      min-width: auto;
+    }
+
+    .social-link {
+      padding: 0.625rem 1.25rem;
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .form-input,
+    .btn-submit,
+    .error-message,
+    .contact-link,
+    .social-link,
+    .spinner,
+    .success-message,
+    .animate-on-scroll {
+      transition: none;
+      animation: none;
+    }
+  }
+
+  .form-input:focus-visible,
+  .btn-submit:focus-visible,
+  .social-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
   }
 </style>
