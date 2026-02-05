@@ -1,0 +1,39 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#1f2937"/>
+  
+  <!-- Blog container -->
+  <rect x="50" y="30" width="500" height="340" rx="8" fill="#ffffff"/>
+  
+  <!-- Header -->
+  <rect x="50" y="30" width="500" height="70" rx="8" fill="#111827"/>
+  <text x="80" y="72" font-family="Arial, sans-serif" font-size="32" fill="#ffffff" font-weight="bold">Blog Technique</text>
+  
+  <!-- Navigation -->
+  <text x="380" y="68" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">Articles</text>
+  <text x="450" y="68" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">À propos</text>
+  
+  <!-- Article card 1 -->
+  <rect x="70" y="120" width="460" height="60" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="80" y="130" width="40" height="40" rx="4" fill="#dbeafe"/>
+  <text x="85" y="155" font-family="Arial, sans-serif" font-size="24" fill="#2563eb" font-weight="bold">📘</text>
+  <text x="135" y="145" font-family="Arial, sans-serif" font-size="16" fill="#1f2937" font-weight="bold">Introduction à TypeScript</text>
+  <text x="135" y="165" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Découvrez les bases du typage statique avec TypeScript</text>
+  
+  <!-- Article card 2 -->
+  <rect x="70" y="195" width="460" height="60" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="80" y="205" width="40" height="40" rx="4" fill="#dbeafe"/>
+  <text x="85" y="230" font-family="Arial, sans-serif" font-size="24" fill="#2563eb" font-weight="bold">🚀</text>
+  <text x="135" y="220" font-family="Arial, sans-serif" font-size="16" fill="#1f2937" font-weight="bold">Déployer avec Astro SSG</text>
+  <text x="135" y="240" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Guide complet pour créer un site statique performant</text>
+  
+  <!-- Article card 3 -->
+  <rect x="70" y="270" width="460" height="60" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="80" y="280" width="40" height="40" rx="4" fill="#dbeafe"/>
+  <text x="85" y="305" font-family="Arial, sans-serif" font-size="24" fill="#2563eb" font-weight="bold">🎨</text>
+  <text x="135" y="295" font-family="Arial, sans-serif" font-size="16" fill="#1f2937" font-weight="bold">CSS Grid vs Flexbox</text>
+  <text x="135" y="315" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Quand utiliser Grid et quand utiliser Flexbox ?</text>
+  
+  <!-- Footer tech stack -->
+  <text x="300" y="360" font-family="Arial, sans-serif" font-size="14" fill="#6b7280" text-anchor="middle">Astro • Markdown • TypeScript • Tailwind CSS</text>
+</svg>

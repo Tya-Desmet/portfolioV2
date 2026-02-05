@@ -1,0 +1,71 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; {currentYear} Mystya. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="/rss.xml" aria-label="S'abonner au flux RSS" class="rss-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11a9 9 0 0 1 9 9"></path>
+                    <path d="M4 4a16 16 0 0 1 16 16"></path>
+                    <circle cx="5" cy="19" r="1"></circle>
+                </svg>
+                <span>RSS</span>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<style>
+/* Footer Styles - Mobile First */
+.footer {
+    padding: var(--spacing-md) var(--spacing-sm);
+    background-color: var(--color-text);
+    color: var(--color-background);
+    text-align: center;
+    font-size: 0.8125rem;
+}
+
+@media (min-width: 640px) {
+    .footer {
+        padding: var(--spacing-lg) var(--spacing-md);
+        font-size: 0.875rem;
+    }
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0 0 0.5rem 0;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-links {
+    margin-top: 0.5rem;
+}
+
+.rss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
+
+.rss-link:hover {
+    color: var(--color-primary);
+}
+
+.rss-link svg {
+    width: 1rem;
+    height: 1rem;
+}
+</style>

@@ -1,0 +1,277 @@
+---
+// Technologies Section Component
+---
+
+<section id="technologies" class="technologies animate-on-scroll">
+  <div class="container">
+    <h2 class="section-title">Technologies & Compétences</h2>
+    
+    <!-- Frontend Category -->
+    <div class="tech-category">
+      <h3 class="category-title">Frontend</h3>
+      <ul class="tech-list">
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🎨</i>
+          <span class="tech-name">HTML5</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🎨</i>
+          <span class="tech-name">CSS3</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">⚡</i>
+          <span class="tech-name">JavaScript ES6+</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🎨</i>
+          <span class="tech-name">Tailwind CSS</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">⚛️</i>
+          <span class="tech-name">React</span>
+          <span class="tech-badge learning">En cours</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🚀</i>
+          <span class="tech-name">Astro</span>
+          <span class="tech-badge learning">En cours</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Backend Category -->
+    <div class="tech-category">
+      <h3 class="category-title">Backend</h3>
+      <ul class="tech-list">
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🟢</i>
+          <span class="tech-name">Node.js</span>
+          <span class="tech-badge learning">En cours</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🚂</i>
+          <span class="tech-name">Express</span>
+          <span class="tech-badge learning">En cours</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🐘</i>
+          <span class="tech-name">PostgreSQL</span>
+          <span class="tech-badge learning">En cours</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">☕</i>
+          <span class="tech-name">Java</span>
+          <span class="tech-badge learning">Apprentissage</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Tools Category -->
+    <div class="tech-category">
+      <h3 class="category-title">Outils & Workflow</h3>
+      <ul class="tech-list">
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">📚</i>
+          <span class="tech-name">Git</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">💻</i>
+          <span class="tech-name">VS Code</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">📦</i>
+          <span class="tech-name">npm</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">⚡</i>
+          <span class="tech-name">Vite</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Learning Category -->
+    <div class="tech-category">
+      <h3 class="category-title">Apprentissage en cours</h3>
+      <ul class="tech-list">
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">📘</i>
+          <span class="tech-name">TypeScript</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🐳</i>
+          <span class="tech-name">Docker</span>
+        </li>
+        <li class="tech-item">
+          <i class="tech-icon" aria-hidden="true">🔌</i>
+          <span class="tech-name">Socket.io</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Technologies Section - Mobile First */
+  .technologies {
+    padding: var(--spacing-2xl) var(--spacing-sm);
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .technologies {
+      padding: var(--spacing-2xl) var(--spacing-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .technologies {
+      padding: var(--spacing-3xl) var(--spacing-md);
+    }
+  }
+
+  .technologies .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: var(--spacing-md) auto var(--spacing-2xl);
+    border-radius: var(--radius-full);
+  }
+
+  /* Tech Categories */
+  .tech-category {
+    margin-bottom: var(--spacing-2xl);
+    background: var(--color-surface-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    transition: all var(--transition-normal);
+  }
+
+  .tech-category:hover {
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (min-width: 768px) {
+    .tech-category {
+      padding: var(--spacing-xl);
+    }
+  }
+
+  .category-title {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .category-title::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+  }
+
+  /* Tech List */
+  .tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--spacing-md);
+    align-items: start;
+  }
+
+  @media (min-width: 640px) {
+    .tech-list {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .tech-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-background);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    transition: all var(--transition-fast);
+    cursor: default;
+  }
+
+  .tech-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+  }
+
+  .tech-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .tech-name {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    flex: 1;
+  }
+
+  .tech-badge {
+    font-size: var(--font-size-small);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+  }
+
+  .tech-badge.learning {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--color-primary);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+  }
+
+  /* Animation on scroll */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
