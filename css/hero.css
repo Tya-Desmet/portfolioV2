@@ -14,16 +14,17 @@
     overflow: hidden;
 }
 
-/* Mobile optimization */
+/* Mobile optimization - Force auto height */
 @media (max-width: 768px) {
     .hero {
-        min-height: auto;
+        min-height: auto !important;
         padding: calc(80px + var(--spacing-xl)) var(--spacing-sm) var(--spacing-xl);
     }
 }
 
 @media (max-width: 480px) {
     .hero {
+        min-height: auto !important;
         padding: calc(80px + var(--spacing-lg)) var(--spacing-sm) var(--spacing-lg);
     }
 }
